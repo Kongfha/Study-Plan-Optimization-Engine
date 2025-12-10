@@ -1,0 +1,77 @@
+{
+  "subject_name": "Statistics for Computer Engineering",
+  "mode": "short_term",
+  "start_date": "2024-08-01",
+  "horizon_end": "2024-08-01",
+  "daily_max_fatigue": 7,
+  "availability_source": {
+    "weekly_hours": {
+      "Mon": 2,
+      "Tue": 3,
+      "Wed": 2,
+      "Thu": 3,
+      "Fri": 2,
+      "Sat": 6,
+      "Sun": 6
+    },
+    "adhoc_hours": {}
+  },
+  "schedule": [
+    {
+      "date": "2024-08-01",
+      "hours_planned": 3.0,
+      "fatigue_total": 2.0,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Statistics for Computer Engineering:M1",
+          "module_name": "Introduction & Python for Statistics",
+          "subject_name": "Statistics for Computer Engineering",
+          "exam_type": "Midterm Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.13,
+          "value_per_hour": 0.043333333333333335,
+          "urgency": 0.020815339132702674,
+          "fatigue_drain": 0.6666666666666666
+        },
+        {
+          "module_id": "M1",
+          "module_key": "Statistics for Computer Engineering:M1",
+          "module_name": "Introduction & Python for Statistics",
+          "subject_name": "Statistics for Computer Engineering",
+          "exam_type": "Midterm Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.13,
+          "value_per_hour": 0.043333333333333335,
+          "urgency": 0.020815339132702674,
+          "fatigue_drain": 0.6666666666666666
+        },
+        {
+          "module_id": "M1",
+          "module_key": "Statistics for Computer Engineering:M1",
+          "module_name": "Introduction & Python for Statistics",
+          "subject_name": "Statistics for Computer Engineering",
+          "exam_type": "Midterm Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.13,
+          "value_per_hour": 0.043333333333333335,
+          "urgency": 0.020815339132702674,
+          "fatigue_drain": 0.6666666666666666
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "expected_score_gain": 0.13,
+    "exam_score_coverage": 0.1,
+    "exam_score_coverage_pct": 0.12500000000000003,
+    "fatigue_compliance_rate": 1.0,
+    "deadline_violations": 0,
+    "dependency_violations": 0,
+    "total_hours_scheduled": 3.0
+  },
+  "notes": [
+    "Modules with fatigue drain above the daily cap (7): M3, M7.",
+    "18 blocks remained unscheduled in the short-term plan."
+  ]
+}

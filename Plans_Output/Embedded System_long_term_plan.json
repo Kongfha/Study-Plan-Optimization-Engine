@@ -1,0 +1,1666 @@
+{
+  "subject_name": "Embedded System",
+  "mode": "long_term",
+  "start_date": "2024-08-01",
+  "horizon_end": "2024-11-25",
+  "daily_max_fatigue": 7,
+  "availability_source": {
+    "weekly_hours": {
+      "Mon": 2,
+      "Tue": 3,
+      "Wed": 2,
+      "Thu": 3,
+      "Fri": 2,
+      "Sat": 6,
+      "Sun": 6
+    },
+    "adhoc_hours": {}
+  },
+  "schedule": [
+    {
+      "date": "2024-08-01",
+      "hours_planned": 1.0,
+      "fatigue_total": 0.75,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Embedded System:M1",
+          "module_name": "History, Overview & Basic Circuit Design",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.028749999999999998,
+          "value_per_hour": 0.0071874999999999994,
+          "urgency": 0.01635737513753921,
+          "fatigue_drain": 0.75
+        }
+      ]
+    },
+    {
+      "date": "2024-08-02",
+      "hours_planned": 2.0,
+      "fatigue_total": 1.9166666666666667,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Embedded System:M1",
+          "module_name": "History, Overview & Basic Circuit Design",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.028749999999999998,
+          "value_per_hour": 0.0071874999999999994,
+          "urgency": 0.01731104585500387,
+          "fatigue_drain": 0.75
+        },
+        {
+          "module_id": "M2",
+          "module_key": "Embedded System:M2",
+          "module_name": "Diodes, CMOS & Storage Cells (DRAM/SRAM)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.017,
+          "value_per_hour": 0.0028333333333333335,
+          "urgency": 0.01731104585500387,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-08-03",
+      "hours_planned": 4.0,
+      "fatigue_total": 4.5,
+      "blocks": [
+        {
+          "module_id": "M2",
+          "module_key": "Embedded System:M2",
+          "module_name": "Diodes, CMOS & Storage Cells (DRAM/SRAM)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.017,
+          "value_per_hour": 0.0028333333333333335,
+          "urgency": 0.01836575523904249,
+          "fatigue_drain": 1.1666666666666667
+        },
+        {
+          "module_id": "M4",
+          "module_key": "Embedded System:M4",
+          "module_name": "Review & Basic I/O (Lab Focus)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.025,
+          "value_per_hour": 0.005,
+          "urgency": 0.01836575523904249,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M4",
+          "module_key": "Embedded System:M4",
+          "module_name": "Review & Basic I/O (Lab Focus)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.025,
+          "value_per_hour": 0.005,
+          "urgency": 0.01836575523904249,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M3",
+          "module_key": "Embedded System:M3",
+          "module_name": "Op-Amp Circuits & Basic Analog",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0024791666666666664,
+          "urgency": 0.01836575523904249,
+          "fatigue_drain": 1.3333333333333333
+        }
+      ]
+    },
+    {
+      "date": "2024-08-04",
+      "hours_planned": 6.0,
+      "fatigue_total": 6.80952380952381,
+      "blocks": [
+        {
+          "module_id": "M2",
+          "module_key": "Embedded System:M2",
+          "module_name": "Diodes, CMOS & Storage Cells (DRAM/SRAM)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.017,
+          "value_per_hour": 0.0028333333333333335,
+          "urgency": 0.019530672050780837,
+          "fatigue_drain": 1.1666666666666667
+        },
+        {
+          "module_id": "M2",
+          "module_key": "Embedded System:M2",
+          "module_name": "Diodes, CMOS & Storage Cells (DRAM/SRAM)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.017,
+          "value_per_hour": 0.0028333333333333335,
+          "urgency": 0.019530672050780837,
+          "fatigue_drain": 1.1666666666666667
+        },
+        {
+          "module_id": "M3",
+          "module_key": "Embedded System:M3",
+          "module_name": "Op-Amp Circuits & Basic Analog",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0024791666666666664,
+          "urgency": 0.019530672050780837,
+          "fatigue_drain": 1.3333333333333333
+        },
+        {
+          "module_id": "M9",
+          "module_key": "Embedded System:M9",
+          "module_name": "ADC (Analog to Digital Converter)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.03375,
+          "value_per_hour": 0.005625000000000001,
+          "urgency": 0.00467289720818138,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M5",
+          "module_key": "Embedded System:M5",
+          "module_name": "Keypad & LCD Interfacing",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.022500000000000003,
+          "value_per_hour": 0.0037500000000000003,
+          "urgency": 0.00632955019453541,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M6",
+          "module_key": "Embedded System:M6",
+          "module_name": "External Interrupts",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0021249999999999997,
+          "urgency": 0.00632955019453541,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-08-05",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-06",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-07",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-08",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-09",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.142857142857143,
+      "blocks": [
+        {
+          "module_id": "M6",
+          "module_key": "Embedded System:M6",
+          "module_name": "External Interrupts",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0021249999999999997,
+          "urgency": 0.006758753356219352,
+          "fatigue_drain": 1.1428571428571428
+        },
+        {
+          "module_id": "M4",
+          "module_key": "Embedded System:M4",
+          "module_name": "Review & Basic I/O (Lab Focus)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.025,
+          "value_per_hour": 0.005,
+          "urgency": 0.027353471839106237,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-08-10",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1666666666666667,
+      "blocks": [
+        {
+          "module_id": "M2",
+          "module_key": "Embedded System:M2",
+          "module_name": "Diodes, CMOS & Storage Cells (DRAM/SRAM)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.017,
+          "value_per_hour": 0.0028333333333333335,
+          "urgency": 0.02939071904861895,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-08-11",
+      "hours_planned": 5.0,
+      "fatigue_total": 5.392857142857142,
+      "blocks": [
+        {
+          "module_id": "M6",
+          "module_key": "Embedded System:M6",
+          "module_name": "External Interrupts",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0021249999999999997,
+          "urgency": 0.006948005138730632,
+          "fatigue_drain": 1.1428571428571428
+        },
+        {
+          "module_id": "M7",
+          "module_key": "Embedded System:M7",
+          "module_name": "Timers & PWM (Pulse Width Modulation)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.012750000000000001,
+          "value_per_hour": 0.0015937500000000001,
+          "urgency": 0.006948005138730632,
+          "fatigue_drain": 1.125
+        },
+        {
+          "module_id": "M4",
+          "module_key": "Embedded System:M4",
+          "module_name": "Review & Basic I/O (Lab Focus)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.025,
+          "value_per_hour": 0.005,
+          "urgency": 0.03161105213136477,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M7",
+          "module_key": "Embedded System:M7",
+          "module_name": "Timers & PWM (Pulse Width Modulation)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.012750000000000001,
+          "value_per_hour": 0.0015937500000000001,
+          "urgency": 0.006948005138730632,
+          "fatigue_drain": 1.125
+        },
+        {
+          "module_id": "M5",
+          "module_key": "Embedded System:M5",
+          "module_name": "Keypad & LCD Interfacing",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.022500000000000003,
+          "value_per_hour": 0.0037500000000000003,
+          "urgency": 0.006948005138730632,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-08-12",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-13",
+      "hours_planned": 2.0,
+      "fatigue_total": 1.9166666666666667,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Embedded System:M1",
+          "module_name": "History, Overview & Basic Circuit Design",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.028749999999999998,
+          "value_per_hour": 0.0071874999999999994,
+          "urgency": 0.03664721300333773,
+          "fatigue_drain": 0.75
+        },
+        {
+          "module_id": "M2",
+          "module_key": "Embedded System:M2",
+          "module_name": "Diodes, CMOS & Storage Cells (DRAM/SRAM)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.017,
+          "value_per_hour": 0.0028333333333333335,
+          "urgency": 0.03664721300333773,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-08-14",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.125,
+      "blocks": [
+        {
+          "module_id": "M7",
+          "module_key": "Embedded System:M7",
+          "module_name": "Timers & PWM (Pulse Width Modulation)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.012750000000000001,
+          "value_per_hour": 0.0015937500000000001,
+          "urgency": 0.007254590881267923,
+          "fatigue_drain": 1.125
+        }
+      ]
+    },
+    {
+      "date": "2024-08-15",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-16",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M8",
+          "module_key": "Embedded System:M8",
+          "module_name": "Motor Control",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.020000000000000004,
+          "value_per_hour": 0.0028571428571428576,
+          "urgency": 0.007476726829027879,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-08-17",
+      "hours_planned": 6.0,
+      "fatigue_total": 6.976190476190476,
+      "blocks": [
+        {
+          "module_id": "M10",
+          "module_key": "Embedded System:M10",
+          "module_name": "USART Communication",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.019125,
+          "value_per_hour": 0.002390625,
+          "urgency": 0.0053191513256654974,
+          "fatigue_drain": 1.125
+        },
+        {
+          "module_id": "M10",
+          "module_key": "Embedded System:M10",
+          "module_name": "USART Communication",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.019125,
+          "value_per_hour": 0.002390625,
+          "urgency": 0.0053191513256654974,
+          "fatigue_drain": 1.125
+        },
+        {
+          "module_id": "M10",
+          "module_key": "Embedded System:M10",
+          "module_name": "USART Communication",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.019125,
+          "value_per_hour": 0.002390625,
+          "urgency": 0.0053191513256654974,
+          "fatigue_drain": 1.125
+        },
+        {
+          "module_id": "M3",
+          "module_key": "Embedded System:M3",
+          "module_name": "Op-Amp Circuits & Basic Analog",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0024791666666666664,
+          "urgency": 0.049454481560724496,
+          "fatigue_drain": 1.3333333333333333
+        },
+        {
+          "module_id": "M7",
+          "module_key": "Embedded System:M7",
+          "module_name": "Timers & PWM (Pulse Width Modulation)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.012750000000000001,
+          "value_per_hour": 0.0015937500000000001,
+          "urgency": 0.007593997878709518,
+          "fatigue_drain": 1.125
+        },
+        {
+          "module_id": "M6",
+          "module_key": "Embedded System:M6",
+          "module_name": "External Interrupts",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0021249999999999997,
+          "urgency": 0.007593997878709518,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-08-18",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M8",
+          "module_key": "Embedded System:M8",
+          "module_name": "Motor Control",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.020000000000000004,
+          "value_per_hour": 0.0028571428571428576,
+          "urgency": 0.007715904779681915,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-08-19",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-20",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.25,
+      "blocks": [
+        {
+          "module_id": "M11",
+          "module_key": "Embedded System:M11",
+          "module_name": "I2C & SPI Protocols",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.013125,
+          "value_per_hour": 0.001640625,
+          "urgency": 0.005494512811386231,
+          "fatigue_drain": 1.25
+        }
+      ]
+    },
+    {
+      "date": "2024-08-21",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-22",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M8",
+          "module_key": "Embedded System:M8",
+          "module_name": "Motor Control",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.020000000000000004,
+          "value_per_hour": 0.0028571428571428576,
+          "urgency": 0.008260097051466768,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-08-23",
+      "hours_planned": 1.0,
+      "fatigue_total": 0.75,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Embedded System:M1",
+          "module_name": "History, Overview & Basic Circuit Design",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.028749999999999998,
+          "value_per_hour": 0.0071874999999999994,
+          "urgency": 0.07760166998593715,
+          "fatigue_drain": 0.75
+        }
+      ]
+    },
+    {
+      "date": "2024-08-24",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-25",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-26",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-27",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-28",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-29",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.333333333333333,
+      "blocks": [
+        {
+          "module_id": "M3",
+          "module_key": "Embedded System:M3",
+          "module_name": "Op-Amp Circuits & Basic Analog",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0024791666666666664,
+          "urgency": 0.12481502042380052,
+          "fatigue_drain": 1.3333333333333333
+        },
+        {
+          "module_id": "M8",
+          "module_key": "Embedded System:M8",
+          "module_name": "Motor Control",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.020000000000000004,
+          "value_per_hour": 0.0028571428571428576,
+          "urgency": 0.009563444731831213,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-08-30",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-31",
+      "hours_planned": 3.0,
+      "fatigue_total": 3.583333333333333,
+      "blocks": [
+        {
+          "module_id": "M5",
+          "module_key": "Embedded System:M5",
+          "module_name": "Keypad & LCD Interfacing",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.022500000000000003,
+          "value_per_hour": 0.0037500000000000003,
+          "urgency": 0.010074229074603468,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M3",
+          "module_key": "Embedded System:M3",
+          "module_name": "Op-Amp Circuits & Basic Analog",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0024791666666666664,
+          "urgency": 0.14977802450856065,
+          "fatigue_drain": 1.3333333333333333
+        },
+        {
+          "module_id": "M11",
+          "module_key": "Embedded System:M11",
+          "module_name": "I2C & SPI Protocols",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.013125,
+          "value_per_hour": 0.001640625,
+          "urgency": 0.006250317741831453,
+          "fatigue_drain": 1.25
+        }
+      ]
+    },
+    {
+      "date": "2024-09-01",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-02",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-03",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-04",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.3333333333333333,
+      "blocks": [
+        {
+          "module_id": "M3",
+          "module_key": "Embedded System:M3",
+          "module_name": "Op-Amp Circuits & Basic Analog",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0024791666666666664,
+          "urgency": 0.24099324481779422,
+          "fatigue_drain": 1.3333333333333333
+        }
+      ]
+    },
+    {
+      "date": "2024-09-05",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.25,
+      "blocks": [
+        {
+          "module_id": "M11",
+          "module_key": "Embedded System:M11",
+          "module_name": "I2C & SPI Protocols",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.013125,
+          "value_per_hour": 0.001640625,
+          "urgency": 0.0066681522391701725,
+          "fatigue_drain": 1.25
+        }
+      ]
+    },
+    {
+      "date": "2024-09-06",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.125,
+      "blocks": [
+        {
+          "module_id": "M10",
+          "module_key": "Embedded System:M10",
+          "module_name": "USART Communication",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.019125,
+          "value_per_hour": 0.002390625,
+          "urgency": 0.006758753356219352,
+          "fatigue_drain": 1.125
+        },
+        {
+          "module_id": "M9",
+          "module_key": "Embedded System:M9",
+          "module_name": "ADC (Analog to Digital Converter)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.03375,
+          "value_per_hour": 0.005625000000000001,
+          "urgency": 0.006758753356219352,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-09-07",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-08",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.142857142857143,
+      "blocks": [
+        {
+          "module_id": "M4",
+          "module_key": "Embedded System:M4",
+          "module_name": "Review & Basic I/O (Lab Focus)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.025,
+          "value_per_hour": 0.005,
+          "urgency": 0.667635105705636,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M6",
+          "module_key": "Embedded System:M6",
+          "module_name": "External Interrupts",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0021249999999999997,
+          "urgency": 0.013384582214986052,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-09-10",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M9",
+          "module_key": "Embedded System:M9",
+          "module_name": "ADC (Analog to Digital Converter)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.03375,
+          "value_per_hour": 0.005625000000000001,
+          "urgency": 0.007149100136141425,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-09-11",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M8",
+          "module_key": "Embedded System:M8",
+          "module_name": "Motor Control",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.020000000000000004,
+          "value_per_hour": 0.0028571428571428576,
+          "urgency": 0.015495982517966163,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-09-12",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-13",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-14",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-15",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M9",
+          "module_key": "Embedded System:M9",
+          "module_name": "ADC (Analog to Digital Converter)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.03375,
+          "value_per_hour": 0.005625000000000001,
+          "urgency": 0.007715904779681915,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-09-16",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-17",
+      "hours_planned": 3.0,
+      "fatigue_total": 3.5,
+      "blocks": [
+        {
+          "module_id": "M11",
+          "module_key": "Embedded System:M11",
+          "module_name": "I2C & SPI Protocols",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.013125,
+          "value_per_hour": 0.001640625,
+          "urgency": 0.00797550502318237,
+          "fatigue_drain": 1.25
+        },
+        {
+          "module_id": "M11",
+          "module_key": "Embedded System:M11",
+          "module_name": "I2C & SPI Protocols",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.013125,
+          "value_per_hour": 0.001640625,
+          "urgency": 0.00797550502318237,
+          "fatigue_drain": 1.25
+        },
+        {
+          "module_id": "M5",
+          "module_key": "Embedded System:M5",
+          "module_name": "Keypad & LCD Interfacing",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.022500000000000003,
+          "value_per_hour": 0.0037500000000000003,
+          "urgency": 0.02222963715580555,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-09-18",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-19",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-20",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-21",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-22",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-23",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-24",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-25",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-26",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1428571428571428,
+      "blocks": [
+        {
+          "module_id": "M6",
+          "module_key": "Embedded System:M6",
+          "module_name": "External Interrupts",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0021249999999999997,
+          "urgency": 0.04255887152740898,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-09-27",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-28",
+      "hours_planned": 4.0,
+      "fatigue_total": 4.625,
+      "blocks": [
+        {
+          "module_id": "M7",
+          "module_key": "Embedded System:M7",
+          "module_name": "Timers & PWM (Pulse Width Modulation)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.012750000000000001,
+          "value_per_hour": 0.0015937500000000001,
+          "urgency": 0.049454481560724496,
+          "fatigue_drain": 1.125
+        },
+        {
+          "module_id": "M11",
+          "module_key": "Embedded System:M11",
+          "module_name": "I2C & SPI Protocols",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.013125,
+          "value_per_hour": 0.001640625,
+          "urgency": 0.010074229074603468,
+          "fatigue_drain": 1.25
+        },
+        {
+          "module_id": "M7",
+          "module_key": "Embedded System:M7",
+          "module_name": "Timers & PWM (Pulse Width Modulation)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.012750000000000001,
+          "value_per_hour": 0.0015937500000000001,
+          "urgency": 0.049454481560724496,
+          "fatigue_drain": 1.125
+        },
+        {
+          "module_id": "M10",
+          "module_key": "Embedded System:M10",
+          "module_name": "USART Communication",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.019125,
+          "value_per_hour": 0.002390625,
+          "urgency": 0.010074229074603468,
+          "fatigue_drain": 1.125
+        }
+      ]
+    },
+    {
+      "date": "2024-09-29",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.125,
+      "blocks": [
+        {
+          "module_id": "M12",
+          "module_key": "Embedded System:M12",
+          "module_name": "Memory Extension (EEPROM/Flash)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.0375,
+          "value_per_hour": 0.0075,
+          "urgency": 0.010364029427148046,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M7",
+          "module_key": "Embedded System:M7",
+          "module_name": "Timers & PWM (Pulse Width Modulation)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.012750000000000001,
+          "value_per_hour": 0.0015937500000000001,
+          "urgency": 0.053310827698856124,
+          "fatigue_drain": 1.125
+        }
+      ]
+    },
+    {
+      "date": "2024-09-30",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M9",
+          "module_key": "Embedded System:M9",
+          "module_name": "ADC (Analog to Digital Converter)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.03375,
+          "value_per_hour": 0.005625000000000001,
+          "urgency": 0.010680949094691987,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-10-01",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-02",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-03",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-04",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-05",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M8",
+          "module_key": "Embedded System:M8",
+          "module_name": "Motor Control",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.020000000000000004,
+          "value_per_hour": 0.0028571428571428576,
+          "urgency": 0.08371272625803738,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-10-06",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.25,
+      "blocks": [
+        {
+          "module_id": "M11",
+          "module_key": "Embedded System:M11",
+          "module_name": "I2C & SPI Protocols",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.013125,
+          "value_per_hour": 0.001640625,
+          "urgency": 0.013384582214986052,
+          "fatigue_drain": 1.25
+        }
+      ]
+    },
+    {
+      "date": "2024-10-07",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1428571428571428,
+      "blocks": [
+        {
+          "module_id": "M6",
+          "module_key": "Embedded System:M6",
+          "module_name": "External Interrupts",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.014875,
+          "value_per_hour": 0.0021249999999999997,
+          "urgency": 0.09767127451931203,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-10-08",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.0,
+      "blocks": [
+        {
+          "module_id": "M5",
+          "module_key": "Embedded System:M5",
+          "module_name": "Keypad & LCD Interfacing",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.022500000000000003,
+          "value_per_hour": 0.0037500000000000003,
+          "urgency": 0.10572847666476823,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M8",
+          "module_key": "Embedded System:M8",
+          "module_name": "Motor Control",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.020000000000000004,
+          "value_per_hour": 0.0028571428571428576,
+          "urgency": 0.10572847666476823,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-10-09",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-10",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.125,
+      "blocks": [
+        {
+          "module_id": "M10",
+          "module_key": "Embedded System:M10",
+          "module_name": "USART Communication",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.019125,
+          "value_per_hour": 0.002390625,
+          "urgency": 0.01635737513753921,
+          "fatigue_drain": 1.125
+        }
+      ]
+    },
+    {
+      "date": "2024-10-11",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-12",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-13",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-14",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-15",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M12",
+          "module_key": "Embedded System:M12",
+          "module_name": "Memory Extension (EEPROM/Flash)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.0375,
+          "value_per_hour": 0.0075,
+          "urgency": 0.02222963715580555,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-10-16",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-17",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-18",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M5",
+          "module_key": "Embedded System:M5",
+          "module_name": "Keypad & LCD Interfacing",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.022500000000000003,
+          "value_per_hour": 0.0037500000000000003,
+          "urgency": 0.3492075149367172,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-10-19",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.125,
+      "blocks": [
+        {
+          "module_id": "M7",
+          "module_key": "Embedded System:M7",
+          "module_name": "Timers & PWM (Pulse Width Modulation)",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 2 (Weeks 7-11)",
+          "block_hours": 1.0,
+          "final_weight": 0.012750000000000001,
+          "value_per_hour": 0.0015937500000000001,
+          "urgency": 0.4558094910611369,
+          "fatigue_drain": 1.125
+        },
+        {
+          "module_id": "M12",
+          "module_key": "Embedded System:M12",
+          "module_name": "Memory Extension (EEPROM/Flash)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.0375,
+          "value_per_hour": 0.0075,
+          "urgency": 0.02939071904861895,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-10-20",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-22",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-23",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-24",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-25",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-26",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-27",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.125,
+      "blocks": [
+        {
+          "module_id": "M10",
+          "module_key": "Embedded System:M10",
+          "module_name": "USART Communication",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.019125,
+          "value_per_hour": 0.002390625,
+          "urgency": 0.053310827698856124,
+          "fatigue_drain": 1.125
+        }
+      ]
+    },
+    {
+      "date": "2024-10-28",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-29",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-30",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-31",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.125,
+      "blocks": [
+        {
+          "module_id": "M10",
+          "module_key": "Embedded System:M10",
+          "module_name": "USART Communication",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.019125,
+          "value_per_hour": 0.002390625,
+          "urgency": 0.07196991964123214,
+          "fatigue_drain": 1.125
+        }
+      ]
+    },
+    {
+      "date": "2024-11-01",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-02",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-03",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-04",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-05",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-06",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-07",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-08",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M9",
+          "module_key": "Embedded System:M9",
+          "module_name": "ADC (Analog to Digital Converter)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.03375,
+          "value_per_hour": 0.005625000000000001,
+          "urgency": 0.13636363636363635,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-11-09",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-10",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-11",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-12",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-13",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M12",
+          "module_key": "Embedded System:M12",
+          "module_name": "Memory Extension (EEPROM/Flash)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.0375,
+          "value_per_hour": 0.0075,
+          "urgency": 0.24099324481779422,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-11-14",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-15",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-16",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M12",
+          "module_key": "Embedded System:M12",
+          "module_name": "Memory Extension (EEPROM/Flash)",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.0375,
+          "value_per_hour": 0.0075,
+          "urgency": 0.4558094910611369,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-11-17",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.25,
+      "blocks": [
+        {
+          "module_id": "M11",
+          "module_key": "Embedded System:M11",
+          "module_name": "I2C & SPI Protocols",
+          "subject_name": "Embedded System",
+          "exam_type": "Final Exam / Quiz 3",
+          "block_hours": 1.0,
+          "final_weight": 0.013125,
+          "value_per_hour": 0.001640625,
+          "urgency": 0.667635105705636,
+          "fatigue_drain": 1.25
+        }
+      ]
+    },
+    {
+      "date": "2024-11-19",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-20",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-21",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-22",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-23",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-24",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    }
+  ],
+  "metrics": {
+    "expected_score_gain": 0.25925,
+    "exam_score_coverage": 0.3499999999999999,
+    "exam_score_coverage_pct": 1.0,
+    "fatigue_compliance_rate": 1.0,
+    "deadline_violations": 0,
+    "dependency_violations": 0,
+    "total_hours_scheduled": 76.0
+  },
+  "notes": [
+    "Modules with fatigue drain above the daily cap (7): M3, M6, M7, M10, M11."
+  ]
+}

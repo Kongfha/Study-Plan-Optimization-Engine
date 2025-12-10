@@ -1,0 +1,77 @@
+{
+  "subject_name": "Embedded System",
+  "mode": "short_term",
+  "start_date": "2024-08-01",
+  "horizon_end": "2024-08-01",
+  "daily_max_fatigue": 7,
+  "availability_source": {
+    "weekly_hours": {
+      "Mon": 2,
+      "Tue": 3,
+      "Wed": 2,
+      "Thu": 3,
+      "Fri": 2,
+      "Sat": 6,
+      "Sun": 6
+    },
+    "adhoc_hours": {}
+  },
+  "schedule": [
+    {
+      "date": "2024-08-01",
+      "hours_planned": 3.0,
+      "fatigue_total": 2.25,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Embedded System:M1",
+          "module_name": "History, Overview & Basic Circuit Design",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.028749999999999998,
+          "value_per_hour": 0.0071874999999999994,
+          "urgency": 0.01635737513753921,
+          "fatigue_drain": 0.75
+        },
+        {
+          "module_id": "M1",
+          "module_key": "Embedded System:M1",
+          "module_name": "History, Overview & Basic Circuit Design",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.028749999999999998,
+          "value_per_hour": 0.0071874999999999994,
+          "urgency": 0.01635737513753921,
+          "fatigue_drain": 0.75
+        },
+        {
+          "module_id": "M1",
+          "module_key": "Embedded System:M1",
+          "module_name": "History, Overview & Basic Circuit Design",
+          "subject_name": "Embedded System",
+          "exam_type": "Quiz 1 (Weeks 1-5)",
+          "block_hours": 1.0,
+          "final_weight": 0.028749999999999998,
+          "value_per_hour": 0.0071874999999999994,
+          "urgency": 0.01635737513753921,
+          "fatigue_drain": 0.75
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "expected_score_gain": 0.0215625,
+    "exam_score_coverage": 0.018750000000000003,
+    "exam_score_coverage_pct": 0.05357142857142859,
+    "fatigue_compliance_rate": 1.0,
+    "deadline_violations": 0,
+    "dependency_violations": 0,
+    "total_hours_scheduled": 3.0
+  },
+  "notes": [
+    "Modules with fatigue drain above the daily cap (7): M3, M6, M7, M10, M11.",
+    "18 blocks remained unscheduled in the short-term plan."
+  ]
+}

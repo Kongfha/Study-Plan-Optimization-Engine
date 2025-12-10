@@ -1,0 +1,77 @@
+{
+  "subject_name": "Computer Engineering Mathematics II",
+  "mode": "short_term",
+  "start_date": "2024-08-01",
+  "horizon_end": "2024-08-01",
+  "daily_max_fatigue": 7,
+  "availability_source": {
+    "weekly_hours": {
+      "Mon": 2,
+      "Tue": 3,
+      "Wed": 2,
+      "Thu": 3,
+      "Fri": 2,
+      "Sat": 6,
+      "Sun": 6
+    },
+    "adhoc_hours": {}
+  },
+  "schedule": [
+    {
+      "date": "2024-08-01",
+      "hours_planned": 3.0,
+      "fatigue_total": 3.0,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Computer Engineering Mathematics II:M1",
+          "module_name": "Intro, Signals, Transformation & Sampling",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.005154639925768937,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M1",
+          "module_key": "Computer Engineering Mathematics II:M1",
+          "module_name": "Intro, Signals, Transformation & Sampling",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.005154639925768937,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M1",
+          "module_key": "Computer Engineering Mathematics II:M1",
+          "module_name": "Intro, Signals, Transformation & Sampling",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.005154639925768937,
+          "fatigue_drain": 1.0
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "expected_score_gain": 0.06,
+    "exam_score_coverage": 0.06,
+    "exam_score_coverage_pct": 0.075,
+    "fatigue_compliance_rate": 1.0,
+    "deadline_violations": 0,
+    "dependency_violations": 0,
+    "total_hours_scheduled": 3.0
+  },
+  "notes": [
+    "Modules with fatigue drain above the daily cap (7): M3, M4, M8.",
+    "22 blocks remained unscheduled in the short-term plan."
+  ]
+}

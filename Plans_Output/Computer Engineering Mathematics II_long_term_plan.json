@@ -1,0 +1,1430 @@
+{
+  "subject_name": "Computer Engineering Mathematics II",
+  "mode": "long_term",
+  "start_date": "2024-08-01",
+  "horizon_end": "2024-12-12",
+  "daily_max_fatigue": 7,
+  "availability_source": {
+    "weekly_hours": {
+      "Mon": 2,
+      "Tue": 3,
+      "Wed": 2,
+      "Thu": 3,
+      "Fri": 2,
+      "Sat": 6,
+      "Sun": 6
+    },
+    "adhoc_hours": {}
+  },
+  "schedule": [
+    {
+      "date": "2024-08-01",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.0,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Computer Engineering Mathematics II:M1",
+          "module_name": "Intro, Signals, Transformation & Sampling",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.005154639925768937,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M1",
+          "module_key": "Computer Engineering Mathematics II:M1",
+          "module_name": "Intro, Signals, Transformation & Sampling",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.005154639925768937,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-08-02",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-03",
+      "hours_planned": 2.0,
+      "fatigue_total": 1.6,
+      "blocks": [
+        {
+          "module_id": "M5",
+          "module_key": "Computer Engineering Mathematics II:M5",
+          "module_name": "Hypothesis Testing & AB Testing",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.005154639925768937,
+          "fatigue_drain": 0.8
+        },
+        {
+          "module_id": "M5",
+          "module_key": "Computer Engineering Mathematics II:M5",
+          "module_name": "Hypothesis Testing & AB Testing",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.005154639925768937,
+          "fatigue_drain": 0.8
+        }
+      ]
+    },
+    {
+      "date": "2024-08-04",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.166666666666667,
+      "blocks": [
+        {
+          "module_id": "M6",
+          "module_key": "Computer Engineering Mathematics II:M6",
+          "module_name": "Multi-arm Bandits",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.09000000000000001,
+          "value_per_hour": 0.015000000000000001,
+          "urgency": 0.005208334442226188,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M2",
+          "module_key": "Computer Engineering Mathematics II:M2",
+          "module_name": "Convolution & Estimation",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.068,
+          "value_per_hour": 0.011333333333333334,
+          "urgency": 0.0053191513256654974,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-08-05",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.3333333333333335,
+      "blocks": [
+        {
+          "module_id": "M2",
+          "module_key": "Computer Engineering Mathematics II:M2",
+          "module_name": "Convolution & Estimation",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.068,
+          "value_per_hour": 0.011333333333333334,
+          "urgency": 0.005376347570938136,
+          "fatigue_drain": 1.1666666666666667
+        },
+        {
+          "module_id": "M7",
+          "module_key": "Computer Engineering Mathematics II:M7",
+          "module_name": "Linear Programming & Simplex Method",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.08000000000000002,
+          "value_per_hour": 0.013333333333333336,
+          "urgency": 0.003846153846154012,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-08-06",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1666666666666667,
+      "blocks": [
+        {
+          "module_id": "M7",
+          "module_key": "Computer Engineering Mathematics II:M7",
+          "module_name": "Linear Programming & Simplex Method",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.08000000000000002,
+          "value_per_hour": 0.013333333333333336,
+          "urgency": 0.003875968992248345,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-08-07",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-08",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-09",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-10",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-11",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-12",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-13",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-14",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1428571428571428,
+      "blocks": [
+        {
+          "module_id": "M3",
+          "module_key": "Computer Engineering Mathematics II:M3",
+          "module_name": "CTFT (Continuous-Time Fourier Transform)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.005952466598748708,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-08-15",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Computer Engineering Mathematics II:M1",
+          "module_name": "Intro, Signals, Transformation & Sampling",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.006024216018124168,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-08-16",
+      "hours_planned": 1.0,
+      "fatigue_total": 0.8,
+      "blocks": [
+        {
+          "module_id": "M5",
+          "module_key": "Computer Engineering Mathematics II:M5",
+          "module_name": "Hypothesis Testing & AB Testing",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.005952466598748708,
+          "fatigue_drain": 0.8
+        }
+      ]
+    },
+    {
+      "date": "2024-08-17",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-18",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-19",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-20",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1428571428571428,
+      "blocks": [
+        {
+          "module_id": "M3",
+          "module_key": "Computer Engineering Mathematics II:M3",
+          "module_name": "CTFT (Continuous-Time Fourier Transform)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.006410852863858366,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-08-21",
+      "hours_planned": 1.0,
+      "fatigue_total": 0.8,
+      "blocks": [
+        {
+          "module_id": "M5",
+          "module_key": "Computer Engineering Mathematics II:M5",
+          "module_name": "Hypothesis Testing & AB Testing",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.00632955019453541,
+          "fatigue_drain": 0.8
+        }
+      ]
+    },
+    {
+      "date": "2024-08-22",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-23",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-24",
+      "hours_planned": 1.0,
+      "fatigue_total": 0.8,
+      "blocks": [
+        {
+          "module_id": "M5",
+          "module_key": "Computer Engineering Mathematics II:M5",
+          "module_name": "Hypothesis Testing & AB Testing",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.006580048004568812,
+          "fatigue_drain": 0.8
+        }
+      ]
+    },
+    {
+      "date": "2024-08-25",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-26",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1666666666666667,
+      "blocks": [
+        {
+          "module_id": "M2",
+          "module_key": "Computer Engineering Mathematics II:M2",
+          "module_name": "Convolution & Estimation",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.068,
+          "value_per_hour": 0.011333333333333334,
+          "urgency": 0.006948005138730632,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-08-27",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-28",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.2857142857142856,
+      "blocks": [
+        {
+          "module_id": "M8",
+          "module_key": "Computer Engineering Mathematics II:M8",
+          "module_name": "Two-Phase Method & Integer Programming",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.00467289720818138,
+          "fatigue_drain": 1.1428571428571428
+        },
+        {
+          "module_id": "M3",
+          "module_key": "Computer Engineering Mathematics II:M3",
+          "module_name": "CTFT (Continuous-Time Fourier Transform)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.007149100136141425,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-08-29",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-08-30",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1428571428571428,
+      "blocks": [
+        {
+          "module_id": "M4",
+          "module_key": "Computer Engineering Mathematics II:M4",
+          "module_name": "DTFT & DFT (Discrete Transforms)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.007363702976748243,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-08-31",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1428571428571428,
+      "blocks": [
+        {
+          "module_id": "M8",
+          "module_key": "Computer Engineering Mathematics II:M8",
+          "module_name": "Two-Phase Method & Integer Programming",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.004807692350926438,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-09-01",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-02",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-03",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1428571428571428,
+      "blocks": [
+        {
+          "module_id": "M8",
+          "module_key": "Computer Engineering Mathematics II:M8",
+          "module_name": "Two-Phase Method & Integer Programming",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.004950495200296829,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-09-04",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-05",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-06",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-07",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-08",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-09",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.0,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Computer Engineering Mathematics II:M1",
+          "module_name": "Intro, Signals, Transformation & Sampling",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.008747942836856452,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M6",
+          "module_key": "Computer Engineering Mathematics II:M6",
+          "module_name": "Multi-arm Bandits",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.09000000000000001,
+          "value_per_hour": 0.015000000000000001,
+          "urgency": 0.008413620552135103,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-09-10",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-11",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-12",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1666666666666667,
+      "blocks": [
+        {
+          "module_id": "M7",
+          "module_key": "Computer Engineering Mathematics II:M7",
+          "module_name": "Linear Programming & Simplex Method",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.08000000000000002,
+          "value_per_hour": 0.013333333333333336,
+          "urgency": 0.005434787669256213,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-09-13",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-14",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-15",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-16",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-17",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-18",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-19",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-20",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-21",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-22",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-23",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-24",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-25",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-26",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-27",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-28",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-09-29",
+      "hours_planned": 3.0,
+      "fatigue_total": 3.452380952380952,
+      "blocks": [
+        {
+          "module_id": "M7",
+          "module_key": "Computer Engineering Mathematics II:M7",
+          "module_name": "Linear Programming & Simplex Method",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.08000000000000002,
+          "value_per_hour": 0.013333333333333336,
+          "urgency": 0.0066681522391701725,
+          "fatigue_drain": 1.1666666666666667
+        },
+        {
+          "module_id": "M4",
+          "module_key": "Computer Engineering Mathematics II:M4",
+          "module_name": "DTFT & DFT (Discrete Transforms)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.01836575523904249,
+          "fatigue_drain": 1.1428571428571428
+        },
+        {
+          "module_id": "M4",
+          "module_key": "Computer Engineering Mathematics II:M4",
+          "module_name": "DTFT & DFT (Discrete Transforms)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.01836575523904249,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-09-30",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-01",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-02",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-03",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-04",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-05",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-06",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-07",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.142857142857143,
+      "blocks": [
+        {
+          "module_id": "M4",
+          "module_key": "Computer Engineering Mathematics II:M4",
+          "module_name": "DTFT & DFT (Discrete Transforms)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.03161105213136477,
+          "fatigue_drain": 1.1428571428571428
+        },
+        {
+          "module_id": "M6",
+          "module_key": "Computer Engineering Mathematics II:M6",
+          "module_name": "Multi-arm Bandits",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.09000000000000001,
+          "value_per_hour": 0.015000000000000001,
+          "urgency": 0.027353471839106237,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-10-08",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-09",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-10",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-11",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-12",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M6",
+          "module_key": "Computer Engineering Mathematics II:M6",
+          "module_name": "Multi-arm Bandits",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.09000000000000001,
+          "value_per_hour": 0.015000000000000001,
+          "urgency": 0.03948719072285917,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-10-13",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-14",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-15",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-16",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-17",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1428571428571428,
+      "blocks": [
+        {
+          "module_id": "M4",
+          "module_key": "Computer Engineering Mathematics II:M4",
+          "module_name": "DTFT & DFT (Discrete Transforms)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.06676351057056361,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-10-18",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-19",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-20",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-21",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-22",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.3095238095238093,
+      "blocks": [
+        {
+          "module_id": "M2",
+          "module_key": "Computer Engineering Mathematics II:M2",
+          "module_name": "Convolution & Estimation",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.068,
+          "value_per_hour": 0.011333333333333334,
+          "urgency": 0.09767127451931203,
+          "fatigue_drain": 1.1666666666666667
+        },
+        {
+          "module_id": "M8",
+          "module_key": "Computer Engineering Mathematics II:M8",
+          "module_name": "Two-Phase Method & Integer Programming",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.010074229074603468,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-10-23",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-24",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.2857142857142856,
+      "blocks": [
+        {
+          "module_id": "M3",
+          "module_key": "Computer Engineering Mathematics II:M3",
+          "module_name": "CTFT (Continuous-Time Fourier Transform)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.114703884652945,
+          "fatigue_drain": 1.1428571428571428
+        },
+        {
+          "module_id": "M8",
+          "module_key": "Computer Engineering Mathematics II:M8",
+          "module_name": "Two-Phase Method & Integer Programming",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.010680949094691987,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-10-25",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1428571428571428,
+      "blocks": [
+        {
+          "module_id": "M3",
+          "module_key": "Computer Engineering Mathematics II:M3",
+          "module_name": "CTFT (Continuous-Time Fourier Transform)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.12481502042380052,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-10-26",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1666666666666667,
+      "blocks": [
+        {
+          "module_id": "M2",
+          "module_key": "Computer Engineering Mathematics II:M2",
+          "module_name": "Convolution & Estimation",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.068,
+          "value_per_hour": 0.011333333333333334,
+          "urgency": 0.13636363636363635,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-10-27",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Computer Engineering Mathematics II:M1",
+          "module_name": "Intro, Signals, Transformation & Sampling",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.1,
+          "value_per_hour": 0.02,
+          "urgency": 0.14977802450856065,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-10-28",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-29",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.2857142857142856,
+      "blocks": [
+        {
+          "module_id": "M4",
+          "module_key": "Computer Engineering Mathematics II:M4",
+          "module_name": "DTFT & DFT (Discrete Transforms)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.18502483416334442,
+          "fatigue_drain": 1.1428571428571428
+        },
+        {
+          "module_id": "M8",
+          "module_key": "Computer Engineering Mathematics II:M8",
+          "module_name": "Two-Phase Method & Integer Programming",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.01281379182623319,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-10-30",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-10-31",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-01",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.2857142857142856,
+      "blocks": [
+        {
+          "module_id": "M8",
+          "module_key": "Computer Engineering Mathematics II:M8",
+          "module_name": "Two-Phase Method & Integer Programming",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.01471854564718525,
+          "fatigue_drain": 1.1428571428571428
+        },
+        {
+          "module_id": "M3",
+          "module_key": "Computer Engineering Mathematics II:M3",
+          "module_name": "CTFT (Continuous-Time Fourier Transform)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.2846232692773271,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-11-02",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1428571428571428,
+      "blocks": [
+        {
+          "module_id": "M4",
+          "module_key": "Computer Engineering Mathematics II:M4",
+          "module_name": "DTFT & DFT (Discrete Transforms)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.3492075149367172,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-11-03",
+      "hours_planned": 2.0,
+      "fatigue_total": 2.142857142857143,
+      "blocks": [
+        {
+          "module_id": "M6",
+          "module_key": "Computer Engineering Mathematics II:M6",
+          "module_name": "Multi-arm Bandits",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.09000000000000001,
+          "value_per_hour": 0.015000000000000001,
+          "urgency": 0.2846232692773271,
+          "fatigue_drain": 1.0
+        },
+        {
+          "module_id": "M3",
+          "module_key": "Computer Engineering Mathematics II:M3",
+          "module_name": "CTFT (Continuous-Time Fourier Transform)",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.0595,
+          "value_per_hour": 0.008499999999999999,
+          "urgency": 0.4558094910611369,
+          "fatigue_drain": 1.1428571428571428
+        }
+      ]
+    },
+    {
+      "date": "2024-11-04",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1666666666666667,
+      "blocks": [
+        {
+          "module_id": "M2",
+          "module_key": "Computer Engineering Mathematics II:M2",
+          "module_name": "Convolution & Estimation",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Signal Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.068,
+          "value_per_hour": 0.011333333333333334,
+          "urgency": 0.667635105705636,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-11-06",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.0,
+      "blocks": [
+        {
+          "module_id": "M6",
+          "module_key": "Computer Engineering Mathematics II:M6",
+          "module_name": "Multi-arm Bandits",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Stat Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.09000000000000001,
+          "value_per_hour": 0.015000000000000001,
+          "urgency": 0.667635105705636,
+          "fatigue_drain": 1.0
+        }
+      ]
+    },
+    {
+      "date": "2024-11-08",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-09",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-10",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-11",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-12",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-13",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-14",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-15",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-16",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-17",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-18",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-19",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-20",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-21",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1666666666666667,
+      "blocks": [
+        {
+          "module_id": "M7",
+          "module_key": "Computer Engineering Mathematics II:M7",
+          "module_name": "Linear Programming & Simplex Method",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.08000000000000002,
+          "value_per_hour": 0.013333333333333336,
+          "urgency": 0.05746491659870411,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-11-22",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-23",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-24",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-25",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-26",
+      "hours_planned": 1.0,
+      "fatigue_total": 1.1666666666666667,
+      "blocks": [
+        {
+          "module_id": "M7",
+          "module_key": "Computer Engineering Mathematics II:M7",
+          "module_name": "Linear Programming & Simplex Method",
+          "subject_name": "Computer Engineering Mathematics II",
+          "exam_type": "Optimization Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.08000000000000002,
+          "value_per_hour": 0.013333333333333336,
+          "urgency": 0.08371272625803738,
+          "fatigue_drain": 1.1666666666666667
+        }
+      ]
+    },
+    {
+      "date": "2024-11-27",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-11-30",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-01",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-02",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-03",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-04",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-05",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-06",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-07",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-08",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-09",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-10",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    },
+    {
+      "date": "2024-12-11",
+      "hours_planned": 0,
+      "fatigue_total": 0,
+      "blocks": []
+    }
+  ],
+  "metrics": {
+    "expected_score_gain": 0.6165,
+    "exam_score_coverage": 0.7999999999999999,
+    "exam_score_coverage_pct": 1.0,
+    "fatigue_compliance_rate": 1.0,
+    "deadline_violations": 0,
+    "dependency_violations": 0,
+    "total_hours_scheduled": 49.0
+  },
+  "notes": [
+    "Modules with fatigue drain above the daily cap (7): M3, M4, M8."
+  ]
+}

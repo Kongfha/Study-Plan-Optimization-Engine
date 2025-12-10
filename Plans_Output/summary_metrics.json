@@ -1,0 +1,89 @@
+{
+  "generated_at": "2025-12-10T17:36:19.095318",
+  "start_date": "2024-08-01",
+  "subjects": [
+    {
+      "subject_name": "Computer Engineering Mathematics II",
+      "long_term": {
+        "expected_score_gain": 0.6165,
+        "exam_score_coverage": 0.7999999999999999,
+        "exam_score_coverage_pct": 1.0,
+        "total_hours_scheduled": 49.0,
+        "fatigue_compliance_rate": 1.0,
+        "deadline_violations": 0,
+        "dependency_violations": 0
+      },
+      "short_term": {
+        "expected_score_gain": 0.06,
+        "exam_score_coverage": 0.06,
+        "exam_score_coverage_pct": 0.075,
+        "total_hours_scheduled": 3.0,
+        "fatigue_compliance_rate": 1.0,
+        "deadline_violations": 0,
+        "dependency_violations": 0
+      }
+    },
+    {
+      "subject_name": "Embedded System",
+      "long_term": {
+        "expected_score_gain": 0.25925,
+        "exam_score_coverage": 0.3499999999999999,
+        "exam_score_coverage_pct": 1.0,
+        "total_hours_scheduled": 76.0,
+        "fatigue_compliance_rate": 1.0,
+        "deadline_violations": 0,
+        "dependency_violations": 0
+      },
+      "short_term": {
+        "expected_score_gain": 0.0215625,
+        "exam_score_coverage": 0.018750000000000003,
+        "exam_score_coverage_pct": 0.05357142857142859,
+        "total_hours_scheduled": 3.0,
+        "fatigue_compliance_rate": 1.0,
+        "deadline_violations": 0,
+        "dependency_violations": 0
+      }
+    },
+    {
+      "subject_name": "Statistics for Computer Engineering",
+      "long_term": {
+        "expected_score_gain": 0.7165,
+        "exam_score_coverage": 0.7999999999999999,
+        "exam_score_coverage_pct": 1.0,
+        "total_hours_scheduled": 44.0,
+        "fatigue_compliance_rate": 1.0,
+        "deadline_violations": 0,
+        "dependency_violations": 0
+      },
+      "short_term": {
+        "expected_score_gain": 0.13,
+        "exam_score_coverage": 0.1,
+        "exam_score_coverage_pct": 0.12500000000000003,
+        "total_hours_scheduled": 3.0,
+        "fatigue_compliance_rate": 1.0,
+        "deadline_violations": 0,
+        "dependency_violations": 0
+      }
+    }
+  ],
+  "global": {
+    "long_term": {
+      "expected_score_gain": 1.5922500000000004,
+      "exam_score_coverage": 1.9500000000000006,
+      "exam_score_coverage_pct": 1.0000000000000004,
+      "total_hours_scheduled": 169.0,
+      "fatigue_compliance_rate": 1.0,
+      "deadline_violations": 0,
+      "dependency_violations": 0
+    },
+    "short_term": {
+      "expected_score_gain": 0.13,
+      "exam_score_coverage": 0.1,
+      "exam_score_coverage_pct": 0.051282051282051294,
+      "total_hours_scheduled": 3.0,
+      "fatigue_compliance_rate": 1.0,
+      "deadline_violations": 0,
+      "dependency_violations": 0
+    }
+  }
+}

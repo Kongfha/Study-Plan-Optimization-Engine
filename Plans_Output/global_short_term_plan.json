@@ -1,0 +1,79 @@
+{
+  "subject_name": "All Subjects (Global)",
+  "mode": "global_short_term",
+  "start_date": "2024-08-01",
+  "horizon_end": "2024-08-01",
+  "daily_max_fatigue": 7,
+  "availability_source": {
+    "weekly_hours": {
+      "Mon": 2.0,
+      "Tue": 3.0,
+      "Wed": 2.0,
+      "Thu": 3.0,
+      "Fri": 2.0,
+      "Sat": 6.0,
+      "Sun": 6.0
+    },
+    "adhoc_hours": {}
+  },
+  "schedule": [
+    {
+      "date": "2024-08-01",
+      "hours_planned": 3.0,
+      "fatigue_total": 2.0,
+      "blocks": [
+        {
+          "module_id": "M1",
+          "module_key": "Statistics for Computer Engineering:M1",
+          "module_name": "Introduction & Python for Statistics",
+          "subject_name": "Statistics for Computer Engineering",
+          "exam_type": "Midterm Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.13,
+          "value_per_hour": 0.043333333333333335,
+          "urgency": 0.020815339132702674,
+          "fatigue_drain": 0.6666666666666666
+        },
+        {
+          "module_id": "M1",
+          "module_key": "Statistics for Computer Engineering:M1",
+          "module_name": "Introduction & Python for Statistics",
+          "subject_name": "Statistics for Computer Engineering",
+          "exam_type": "Midterm Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.13,
+          "value_per_hour": 0.043333333333333335,
+          "urgency": 0.020815339132702674,
+          "fatigue_drain": 0.6666666666666666
+        },
+        {
+          "module_id": "M1",
+          "module_key": "Statistics for Computer Engineering:M1",
+          "module_name": "Introduction & Python for Statistics",
+          "subject_name": "Statistics for Computer Engineering",
+          "exam_type": "Midterm Exam",
+          "block_hours": 1.0,
+          "final_weight": 0.13,
+          "value_per_hour": 0.043333333333333335,
+          "urgency": 0.020815339132702674,
+          "fatigue_drain": 0.6666666666666666
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "expected_score_gain": 0.13,
+    "exam_score_coverage": 0.1,
+    "exam_score_coverage_pct": 0.051282051282051294,
+    "fatigue_compliance_rate": 1.0,
+    "deadline_violations": 0,
+    "dependency_violations": 0,
+    "total_hours_scheduled": 3.0
+  },
+  "notes": [
+    "Computer Engineering Mathematics II: Modules above fatigue cap (7): Computer Engineering Mathematics II:M3, Computer Engineering Mathematics II:M4, Computer Engineering Mathematics II:M8.",
+    "Embedded System: Modules above fatigue cap (7): Embedded System:M3, Embedded System:M6, Embedded System:M7, Embedded System:M10, Embedded System:M11.",
+    "Statistics for Computer Engineering: Modules above fatigue cap (7): Statistics for Computer Engineering:M3, Statistics for Computer Engineering:M7.",
+    "18 blocks remained unscheduled in the global short-term plan."
+  ]
+}
