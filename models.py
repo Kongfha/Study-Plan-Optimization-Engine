@@ -13,7 +13,7 @@ class Module:
     estimated_exam_percent: float
     estimated_time_hrs: float
     preparation_ease: int
-    fatigue_drain: int
+    fatigue_drain: int  # per-hour fatigue intensity from input
     dependency_modules: List[str]
     final_weight: float = 0.0
     value_per_hour: float = 0.0
@@ -60,7 +60,7 @@ class StudyBlock:
     subject_name: str
     module_key: str
     exam_date: Optional[date]
-    fatigue_drain: float
+    fatigue_drain: float  # total fatigue for this block (fatigue-per-hour * block_hours)
     final_weight: float
     value_per_hour: float
     preparation_ease: int

@@ -41,7 +41,7 @@ Extract the following information and format it according to the JSON schema pro
    - **estimated_exam_percent**: Estimate what percentage of that exam this module contributes to (distribute the exam's total percentage across its modules)
    - **estimated_time_hrs**: Estimate study hours needed based on complexity (simple topics: 4-6 hrs, moderate: 8-12 hrs, complex: 15-20 hrs)
    - **preparation_ease**: Rate 1-5 (1=very hard, 5=very easy) based on complexity and prerequisites
-   - **fatigue_drain**: Rate 1-10 based on mental effort and topic difficulty
+   - **fatigue_drain**: Rate 1-10 per study hour (fatigue intensity) based on mental effort and topic difficulty
    - **dependency_modules**: List module_ids that should be studied before this one (e.g., ["M1", "M2"])
    - **is_past_exam**: Set to false for regular topics, true only if explicitly mentioned as past exam practice
 

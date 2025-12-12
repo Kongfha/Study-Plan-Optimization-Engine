@@ -34,7 +34,7 @@ class ModulePydantic(BaseModel):
     )
     fatigue_drain: int = Field(
         ...,
-        description="Total fatigue drain for the entire module (1-10 scale)",
+        description="Fatigue intensity per study hour/block (1-10 scale)",
         ge=1,
         le=10
     )
@@ -56,7 +56,7 @@ class ModulePydantic(BaseModel):
                 "estimated_exam_percent": 20.0,
                 "estimated_time_hrs": 8.0,
                 "preparation_ease": 3,
-                "fatigue_drain": 5,
+                "fatigue_drain": 6,
                 "dependency_modules": [],
                 "is_past_exam": False
             }
@@ -173,7 +173,7 @@ class SubjectPydantic(BaseModel):
                         "estimated_exam_percent": 25.0,
                         "estimated_time_hrs": 8.0,
                         "preparation_ease": 3,
-                        "fatigue_drain": 5,
+                        "fatigue_drain": 6,
                         "dependency_modules": [],
                         "is_past_exam": False
                     }

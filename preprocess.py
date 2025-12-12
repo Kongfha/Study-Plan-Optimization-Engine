@@ -75,6 +75,8 @@ def expand_to_blocks(
         exam_day = exam_map.get(module.exam_type)
         module_key = module.module_key or module.module_id
         required_deps: Dict[str, int] = {}
+        block_hours = 1.0
+        fatigue_per_hour = module.fatigue_drain
         for dep in module.dependency_modules:
             dep_key = f"{subject.subject_name}:{dep}"
             dep_blocks = module_block_totals.get(dep_key, 0)
@@ -90,7 +92,6 @@ def expand_to_blocks(
 
         for i in range(module.n_blocks):
             block_counter += 1
-            per_block_fatigue = module.fatigue_drain / max(module.n_blocks, 1)
             blocks.append(
                 StudyBlock(
                     block_uid=f"{module_key}_{i+1}",
@@ -100,10 +101,11 @@ def expand_to_blocks(
                     module_name=module.module_name,
                     exam_type=module.exam_type,
                     exam_date=exam_day,
-                    fatigue_drain=per_block_fatigue,
+                    fatigue_drain=fatigue_per_hour * block_hours,
                     final_weight=module.final_weight,
                     value_per_hour=module.value_per_hour,
                     preparation_ease=module.preparation_ease,
+                    block_hours=block_hours,
                 )
             )
 

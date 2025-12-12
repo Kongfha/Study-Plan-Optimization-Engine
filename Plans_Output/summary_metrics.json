@@ -1,65 +1,65 @@
 {
-  "generated_at": "2025-12-10T17:36:19.095318",
-  "start_date": "2024-08-01",
+  "generated_at": "2025-12-12T18:12:33.202382",
+  "start_date": "2025-08-01",
   "subjects": [
     {
-      "subject_name": "Computer Engineering Mathematics II",
+      "subject_name": "COMPUTER SECURITY",
       "long_term": {
-        "expected_score_gain": 0.6165,
-        "exam_score_coverage": 0.7999999999999999,
-        "exam_score_coverage_pct": 1.0,
-        "total_hours_scheduled": 49.0,
+        "expected_score_gain": 0.0,
+        "exam_score_coverage": 0.0,
+        "exam_score_coverage_pct": 0.0,
+        "total_hours_scheduled": 0.0,
         "fatigue_compliance_rate": 1.0,
         "deadline_violations": 0,
         "dependency_violations": 0
       },
       "short_term": {
-        "expected_score_gain": 0.06,
-        "exam_score_coverage": 0.06,
-        "exam_score_coverage_pct": 0.075,
-        "total_hours_scheduled": 3.0,
+        "expected_score_gain": 4.3125,
+        "exam_score_coverage": 3.75,
+        "exam_score_coverage_pct": 0.0125,
+        "total_hours_scheduled": 2.0,
         "fatigue_compliance_rate": 1.0,
         "deadline_violations": 0,
         "dependency_violations": 0
       }
     },
     {
-      "subject_name": "Embedded System",
+      "subject_name": "IoT Systems and Digital Solutions",
       "long_term": {
-        "expected_score_gain": 0.25925,
-        "exam_score_coverage": 0.3499999999999999,
+        "expected_score_gain": 279.125,
+        "exam_score_coverage": 400.0,
         "exam_score_coverage_pct": 1.0,
-        "total_hours_scheduled": 76.0,
+        "total_hours_scheduled": 152.0,
         "fatigue_compliance_rate": 1.0,
         "deadline_violations": 0,
         "dependency_violations": 0
       },
       "short_term": {
-        "expected_score_gain": 0.0215625,
-        "exam_score_coverage": 0.018750000000000003,
-        "exam_score_coverage_pct": 0.05357142857142859,
-        "total_hours_scheduled": 3.0,
+        "expected_score_gain": 9.583333333333332,
+        "exam_score_coverage": 8.333333333333332,
+        "exam_score_coverage_pct": 0.02083333333333333,
+        "total_hours_scheduled": 2.0,
         "fatigue_compliance_rate": 1.0,
         "deadline_violations": 0,
         "dependency_violations": 0
       }
     },
     {
-      "subject_name": "Statistics for Computer Engineering",
+      "subject_name": "Software-Defined Systems I",
       "long_term": {
-        "expected_score_gain": 0.7165,
-        "exam_score_coverage": 0.7999999999999999,
-        "exam_score_coverage_pct": 1.0,
-        "total_hours_scheduled": 44.0,
+        "expected_score_gain": 238.6851,
+        "exam_score_coverage": 300.02000000000004,
+        "exam_score_coverage_pct": 1.0000000000000002,
+        "total_hours_scheduled": 126.0,
         "fatigue_compliance_rate": 1.0,
         "deadline_violations": 0,
         "dependency_violations": 0
       },
       "short_term": {
-        "expected_score_gain": 0.13,
-        "exam_score_coverage": 0.1,
-        "exam_score_coverage_pct": 0.12500000000000003,
-        "total_hours_scheduled": 3.0,
+        "expected_score_gain": 6.3901666666666666,
+        "exam_score_coverage": 5.556666666666667,
+        "exam_score_coverage_pct": 0.018520987489722907,
+        "total_hours_scheduled": 2.0,
         "fatigue_compliance_rate": 1.0,
         "deadline_violations": 0,
         "dependency_violations": 0
@@ -68,19 +68,19 @@
   ],
   "global": {
     "long_term": {
-      "expected_score_gain": 1.5922500000000004,
-      "exam_score_coverage": 1.9500000000000006,
-      "exam_score_coverage_pct": 1.0000000000000004,
-      "total_hours_scheduled": 169.0,
+      "expected_score_gain": 611.6600999999999,
+      "exam_score_coverage": 800.0200000000001,
+      "exam_score_coverage_pct": 0.8000039999200017,
+      "total_hours_scheduled": 332.0,
       "fatigue_compliance_rate": 1.0,
       "deadline_violations": 0,
       "dependency_violations": 0
     },
     "short_term": {
-      "expected_score_gain": 0.13,
-      "exam_score_coverage": 0.1,
-      "exam_score_coverage_pct": 0.051282051282051294,
-      "total_hours_scheduled": 3.0,
+      "expected_score_gain": 9.583333333333332,
+      "exam_score_coverage": 8.333333333333332,
+      "exam_score_coverage_pct": 0.008333166669999932,
+      "total_hours_scheduled": 2.0,
       "fatigue_compliance_rate": 1.0,
       "deadline_violations": 0,
       "dependency_violations": 0

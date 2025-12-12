@@ -18,8 +18,12 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 from optimizer_loader import load_subjects_from_directory, load_subjects_from_json  # type: ignore  # noqa: E402
-from main import plan_global  # type: ignore  # noqa: E402
-from main import DEFAULT_WEEKLY_HOURS  # type: ignore  # noqa: E402
+try:
+    from main import DEFAULT_WEEKLY_HOURS, DEFAULT_DAILY_MAX_FATIGUE, plan_global  # type: ignore  # noqa: E402
+except ImportError:
+    # Fallback for hot-reload when new constants are added
+    from main import DEFAULT_WEEKLY_HOURS, plan_global  # type: ignore  # noqa: E402
+    DEFAULT_DAILY_MAX_FATIGUE = 50
 from pdf_extractor import process_pdf_syllabus  # type: ignore  # noqa: E402
 
 SUBJECTS_DIR = ROOT_DIR / "Subjects_Input"
@@ -194,7 +198,6 @@ def run_optimizer(
     adhoc_hours: Dict[str, float],
     daily_max_hours: float,
     daily_max_fatigue: int,
-    short_term_horizon_days: int,
     use_sa_refine: bool,
 ) -> Dict[str, Dict]:
     config = {
@@ -203,7 +206,6 @@ def run_optimizer(
         "adhoc_hours": adhoc_hours,
         "daily_max_fatigue": daily_max_fatigue,
         "daily_max_hours": daily_max_hours,
-        "short_term_horizon_days": short_term_horizon_days,
         "use_sa_refine": use_sa_refine,
         "sa_iterations": 1000,
     }
@@ -234,15 +236,12 @@ def download_button_for_file(label: str, path: Path, key: str) -> None:
 with st.sidebar:
     st.header("Configuration")
     start_date_val = st.date_input("Start date", value=date.today())
-    generate_short_term = st.checkbox("Generate short-term plan", value=True)
-    short_term_horizon_days = st.slider(
-        "Short-term horizon (days)", min_value=1, max_value=3, value=1)
     st.markdown("---")
     st.subheader("Constraints")
     daily_max_hours = st.number_input(
         "Daily max hours", min_value=0.0, value=8.0, step=0.5)
     daily_max_fatigue = st.number_input(
-        "Daily max fatigue", min_value=1, value=7, step=1)
+        "Daily max fatigue (per hour scale)", min_value=1, value=DEFAULT_DAILY_MAX_FATIGUE, step=1)
     st.markdown("---")
     st.subheader("Availability")
     st.caption("Edit weekly hours")
@@ -278,9 +277,9 @@ with st.sidebar:
 tabs = st.tabs(
     [
         "Inputs",
+        "Exams & Modules",
         "Validate & Generate",
         "Results — Global Long-Term",
-        "Results — Global Short-Term",
         "Diagnostics",
     ]
 )
@@ -386,11 +385,82 @@ with tabs[0]:
         st.dataframe(summarize_subjects(
             st.session_state["subjects"]), use_container_width=True)
 
-    st.info("💡 fatigue_drain is interpreted as PER-MODULE TOTAL (per-block fatigue = fatigue_drain / n_blocks).")
-
-
-# ----------------------- Tab 2: Validate & Generate ----------------------- #
+# ----------------------- Tab 2: Exams & Modules ----------------------- #
 with tabs[1]:
+    st.header("Exams & Modules")
+    if not st.session_state["subjects"]:
+        st.info("Load subjects first from the Inputs tab.")
+    else:
+        st.caption("Edit exam dates and percentages, and review which modules are tied to each exam.")
+        for subj_idx, subj in enumerate(st.session_state["subjects"]):
+            with st.expander(f"{subj.subject_name} — {len(subj.exams)} exam(s)", expanded=False):
+                with st.form(key=f"exam_edit_form_{subj_idx}"):
+                    exam_rows = []
+                    for eid, exam in enumerate(subj.exams):
+                        try:
+                            parsed_date = datetime.strptime(str(exam.exam_date), "%Y-%m-%d").date()
+                        except Exception:
+                            parsed_date = None
+                        exam_rows.append(
+                            {
+                                "exam_idx": eid,
+                                "exam_name": exam.exam_name,
+                                "exam_date": parsed_date,
+                                "score_percentage": exam.score_percentage,
+                            }
+                        )
+                    edited_df = st.data_editor(
+                        pd.DataFrame(exam_rows),
+                        hide_index=True,
+                        column_config={
+                            "exam_date": st.column_config.DateColumn("Exam date", format="YYYY-MM-DD"),
+                            "score_percentage": st.column_config.NumberColumn("Score %", min_value=0, max_value=100, step=0.5),
+                            "exam_name": st.column_config.TextColumn("Exam name", disabled=True),
+                            "exam_idx": st.column_config.NumberColumn("Idx", disabled=True),
+                        },
+                        key=f"exam_editor_{subj_idx}",
+                        use_container_width=True,
+                    )
+                    saved = st.form_submit_button("Save exam updates", use_container_width=True)
+                    if saved and edited_df is not None:
+                        for _, row in edited_df.iterrows():
+                            idx = int(row["exam_idx"])
+                            if idx < 0 or idx >= len(subj.exams):
+                                continue
+                            exam = subj.exams[idx]
+                            date_val = row.get("exam_date", "")
+                            if isinstance(date_val, datetime):
+                                date_str = date_val.date().isoformat()
+                            elif isinstance(date_val, date):
+                                date_str = date_val.isoformat()
+                            else:
+                                date_str = str(date_val)
+                            exam.exam_date = date_str
+                            try:
+                                exam.score_percentage = float(row.get("score_percentage", 0.0))
+                            except Exception:
+                                exam.score_percentage = 0.0
+                        st.success("Exam details updated.")
+
+                st.markdown("**Modules by exam**")
+                exam_to_modules: Dict[str, List[Dict[str, str]]] = {}
+                for mod in subj.modules:
+                    exam_to_modules.setdefault(mod.exam_type, []).append(
+                        {
+                            "module_id": mod.module_id,
+                            "module_name": mod.module_name,
+                            "estimated_exam_percent": mod.estimated_exam_percent,
+                            "estimated_time_hrs": mod.estimated_time_hrs,
+                            "fatigue_drain": mod.fatigue_drain,
+                        }
+                    )
+                for exam_name, modules in exam_to_modules.items():
+                    st.write(f"• **{exam_name}** ({len(modules)} module(s))")
+                    st.dataframe(pd.DataFrame(modules), use_container_width=True, hide_index=True)
+
+
+# ----------------------- Tab 3: Validate & Generate ----------------------- #
+with tabs[2]:
     st.header("Validate & Generate")
     weekly_hours = weekly_hours_from_df(st.session_state["weekly_hours_df"])
     adhoc_hours = adhoc_hours_from_df(st.session_state["adhoc_df"])
@@ -435,14 +505,13 @@ with tabs[1]:
                     adhoc_hours=adhoc_hours,
                     daily_max_hours=daily_max_hours,
                     daily_max_fatigue=int(daily_max_fatigue),
-                    short_term_horizon_days=short_term_horizon_days if generate_short_term else 1,
                     use_sa_refine=use_sa_refine,
                 )
             st.success("Plans generated. See Results tabs.")
 
 
-# ----------------------- Tab 3: Results — Global Long-Term ----------------------- #
-with tabs[2]:
+# ----------------------- Tab 4: Results — Global Long-Term ----------------------- #
+with tabs[3]:
     st.header("Global Long-Term Plan")
     long_path = OUTPUT_DIR / "global_long_term_plan.json"
     summary_path = OUTPUT_DIR / "summary_metrics.json"
@@ -527,39 +596,7 @@ with tabs[2]:
             "Download summary_metrics.json", summary_path, key="dl_summary")
 
 
-# ----------------------- Tab 4: Results — Global Short-Term ----------------------- #
-with tabs[3]:
-    st.header("Global Short-Term Plan")
-    short_path = OUTPUT_DIR / "global_short_term_plan.json"
-    if not generate_short_term:
-        st.info(
-            "Short-term generation disabled in sidebar. Enable and regenerate to view.")
-    elif not short_path.exists():
-        st.info("No global_short_term_plan.json found. Generate a plan first.")
-    else:
-        plan = load_json_file(short_path) or {}
-        metrics = plan.get("metrics", {})
-        st.subheader("Metrics")
-        cols = st.columns(4)
-        cols[0].metric("Expected score gain",
-                       f"{metrics.get('expected_score_gain', 0):.3f}")
-        cols[1].metric("Exam coverage %",
-                       f"{metrics.get('exam_score_coverage_pct', 0)*100:.1f}%")
-        cols[2].metric("Hours scheduled",
-                       f"{metrics.get('total_hours_scheduled', 0):.1f}")
-        cols[3].metric("Fatigue compliance",
-                       f"{metrics.get('fatigue_compliance_rate', 0)*100:.1f}%")
-
-        schedule = plan.get("schedule", [])
-        if schedule:
-            sched_df = pd.DataFrame(schedule)
-            st.subheader("Schedule")
-            st.table(sched_df[["date", "hours_planned", "fatigue_total"]])
-        st.subheader("Downloads")
-        download_button_for_file(
-            "Download global_short_term_plan.json", short_path, key="dl_short")
-
-
+# ----------------------- Tab 5: Results — Global Short-Term ----------------------- #
 # ----------------------- Tab 5: Diagnostics ----------------------- #
 with tabs[4]:
     st.header("Diagnostics")
