@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 from dataclasses import asdict
 from datetime import date, datetime
@@ -19,6 +20,7 @@ if str(ROOT_DIR) not in sys.path:
 from optimizer_loader import load_subjects_from_directory, load_subjects_from_json  # type: ignore  # noqa: E402
 from main import plan_global  # type: ignore  # noqa: E402
 from main import DEFAULT_WEEKLY_HOURS  # type: ignore  # noqa: E402
+from pdf_extractor import process_pdf_syllabus  # type: ignore  # noqa: E402
 
 SUBJECTS_DIR = ROOT_DIR / "Subjects_Input"
 OUTPUT_DIR = ROOT_DIR / "Plans_Output"
@@ -32,12 +34,15 @@ def init_session_state() -> None:
         st.session_state["subjects"] = []
     if "weekly_hours_df" not in st.session_state:
         st.session_state["weekly_hours_df"] = pd.DataFrame(
-            {"Day": list(DEFAULT_WEEKLY_HOURS.keys()), "Hours": list(DEFAULT_WEEKLY_HOURS.values())}
+            {"Day": list(DEFAULT_WEEKLY_HOURS.keys()),
+             "Hours": list(DEFAULT_WEEKLY_HOURS.values())}
         )
     if "adhoc_df" not in st.session_state:
         st.session_state["adhoc_df"] = pd.DataFrame(columns=["Date", "Hours"])
     if "last_config" not in st.session_state:
         st.session_state["last_config"] = {}
+    if "extraction_status" not in st.session_state:
+        st.session_state["extraction_status"] = []
 
 
 init_session_state()
@@ -55,6 +60,37 @@ def save_uploaded_files(uploaded_files: List[Any]) -> List[Path]:
     return saved_paths
 
 
+def process_pdf_files(pdf_files: List[Any], model_name: str = "gpt-4o-mini", api_key: str = "") -> List[str]:
+    """Process PDF files and extract subject data using LLM."""
+    SUBJECTS_DIR.mkdir(parents=True, exist_ok=True)
+    results: List[str] = []
+
+    for pdf_file in pdf_files:
+        # Save PDF temporarily
+        temp_path = SUBJECTS_DIR / f"temp_{pdf_file.name}"
+        with temp_path.open("wb") as f:
+            f.write(pdf_file.getvalue())
+
+        try:
+            # Extract subject data using LLM
+            output_path = process_pdf_syllabus(
+                pdf_path=temp_path,
+                output_dir=SUBJECTS_DIR,
+                model_name=model_name,
+                temperature=0.1,
+                api_key=api_key if api_key else None
+            )
+            results.append(f"✓ {pdf_file.name} → {output_path.name}")
+        except Exception as e:
+            results.append(f"✗ {pdf_file.name}: {str(e)}")
+        finally:
+            # Clean up temp PDF
+            if temp_path.exists():
+                temp_path.unlink()
+
+    return results
+
+
 def summarize_subjects(subjects) -> pd.DataFrame:
     rows = []
     for subj in subjects:
@@ -63,11 +99,13 @@ def summarize_subjects(subjects) -> pd.DataFrame:
             future_dates = []
             for exam in subj.exams:
                 try:
-                    future_dates.append(datetime.strptime(exam.exam_date, "%Y-%m-%d").date())
+                    future_dates.append(datetime.strptime(
+                        exam.exam_date, "%Y-%m-%d").date())
                 except Exception:
                     continue
             next_exam = min(future_dates) if future_dates else None
-        total_hours = sum(getattr(m, "estimated_time_hrs", 0.0) for m in subj.modules)
+        total_hours = sum(getattr(m, "estimated_time_hrs", 0.0)
+                          for m in subj.modules)
         rows.append(
             {
                 "subject_name": subj.subject_name,
@@ -138,7 +176,8 @@ def validate_inputs(
         for subj in subjects:
             for exam in subj.exams:
                 try:
-                    exam_dt = datetime.strptime(exam.exam_date, "%Y-%m-%d").date()
+                    exam_dt = datetime.strptime(
+                        exam.exam_date, "%Y-%m-%d").date()
                     if start_date_val > exam_dt:
                         warnings.append(
                             f"{subj.subject_name}: start_date after exam '{exam.exam_name}' ({exam.exam_date}); modules tied to it will be deprioritized."
@@ -187,7 +226,8 @@ def download_button_for_file(label: str, path: Path, key: str) -> None:
         st.warning(f"{path.name} not found.")
         return
     data = path.read_bytes()
-    st.download_button(label=label, data=data, file_name=path.name, mime="application/json", key=key)
+    st.download_button(label=label, data=data,
+                       file_name=path.name, mime="application/json", key=key)
 
 
 # ----------------------- Sidebar ----------------------- #
@@ -195,11 +235,14 @@ with st.sidebar:
     st.header("Configuration")
     start_date_val = st.date_input("Start date", value=date.today())
     generate_short_term = st.checkbox("Generate short-term plan", value=True)
-    short_term_horizon_days = st.slider("Short-term horizon (days)", min_value=1, max_value=3, value=1)
+    short_term_horizon_days = st.slider(
+        "Short-term horizon (days)", min_value=1, max_value=3, value=1)
     st.markdown("---")
     st.subheader("Constraints")
-    daily_max_hours = st.number_input("Daily max hours", min_value=0.0, value=8.0, step=0.5)
-    daily_max_fatigue = st.number_input("Daily max fatigue", min_value=1, value=7, step=1)
+    daily_max_hours = st.number_input(
+        "Daily max hours", min_value=0.0, value=8.0, step=0.5)
+    daily_max_fatigue = st.number_input(
+        "Daily max fatigue", min_value=1, value=7, step=1)
     st.markdown("---")
     st.subheader("Availability")
     st.caption("Edit weekly hours")
@@ -221,13 +264,14 @@ with st.sidebar:
     st.markdown("---")
     st.subheader("Optimizer")
     use_sa_refine = st.checkbox("Use simulated annealing refine", value=True)
-    st.caption("Urgency spacing is enabled by default in the optimizer (no toggle).")
+    st.caption(
+        "Urgency spacing is enabled by default in the optimizer (no toggle).")
     st.markdown("---")
     st.subheader("Diagnostics")
     show_diag = st.checkbox("Show per-subject diagnostics", value=False)
     if st.button("Reset session"):
         st.session_state.clear()
-        st.experimental_rerun()
+        st.rerun()
 
 
 # ----------------------- Main Layout ----------------------- #
@@ -245,23 +289,104 @@ tabs = st.tabs(
 # ----------------------- Tab 1: Inputs ----------------------- #
 with tabs[0]:
     st.header("Subject Inputs")
-    uploaded = st.file_uploader("Upload subject JSON files", type=["json"], accept_multiple_files=True)
-    col_up1, col_up2 = st.columns([1, 1])
-    if col_up1.button("Save uploads to Subjects_Input", use_container_width=True):
-        if not uploaded:
-            st.warning("No files uploaded.")
-        else:
-            saved = save_uploaded_files(uploaded)
-            st.success(f"Saved {len(saved)} file(s) to Subjects_Input/.")
-            st.session_state["subjects"] = load_subjects_from_directory(SUBJECTS_DIR)
-    if col_up2.button("Load from Subjects_Input folder", use_container_width=True):
-        st.session_state["subjects"] = load_subjects_from_directory(SUBJECTS_DIR)
-        st.success(f"Loaded {len(st.session_state['subjects'])} subject(s) from folder.")
 
+    # Create tabs for different input methods
+    input_tabs = st.tabs(["📄 PDF Syllabus", "📋 JSON Files"])
+
+    # PDF Upload Tab
+    with input_tabs[0]:
+        st.subheader("Upload PDF Syllabus")
+        st.info(
+            "Upload course syllabus PDFs. The LLM will extract subject information automatically.")
+
+        # API Key input
+        with st.expander("⚙️ LLM Configuration", expanded=False):
+            api_key_input = st.text_input(
+                "Google API Key",
+                type="password",
+                help="Enter your Google API key, or set GOOGLE_API_KEY environment variable",
+                placeholder="AIza..."
+            )
+            model_choice = st.selectbox(
+                "Model",
+                ["gemini-2.5-flash-lite", "gemini-2.5-flash", "gemini-3-pro-preview"],
+            )
+
+        pdf_uploaded = st.file_uploader(
+            "Upload PDF syllabus files",
+            type=["pdf"],
+            accept_multiple_files=True,
+            key="pdf_uploader"
+        )
+
+        col_pdf1, col_pdf2 = st.columns([1, 1])
+
+        if col_pdf1.button("🤖 Extract & Save to Subjects_Input", use_container_width=True, type="primary"):
+            if not pdf_uploaded:
+                st.warning("No PDF files uploaded.")
+            elif not api_key_input and not os.getenv("GOOGLE_API_KEY"):
+                st.error(
+                    "Please provide a Google API key or set GOOGLE_API_KEY environment variable.")
+            else:
+                with st.spinner(f"Extracting data from {len(pdf_uploaded)} PDF(s) using {model_choice}..."):
+                    extraction_results = process_pdf_files(
+                        pdf_uploaded, model_choice, api_key_input)
+                    st.session_state["extraction_status"] = extraction_results
+                    st.session_state["subjects"] = load_subjects_from_directory(
+                        SUBJECTS_DIR)
+
+                st.success(f"Processing complete! Check results below.")
+
+        if col_pdf2.button("📂 Load from Subjects_Input folder", use_container_width=True):
+            st.session_state["subjects"] = load_subjects_from_directory(
+                SUBJECTS_DIR)
+            st.success(
+                f"Loaded {len(st.session_state['subjects'])} subject(s) from folder.")
+
+        # Show extraction status
+        if st.session_state.get("extraction_status"):
+            st.subheader("Extraction Results")
+            for status in st.session_state["extraction_status"]:
+                if status.startswith("✓"):
+                    st.success(status)
+                else:
+                    st.error(status)
+
+    # JSON Upload Tab
+    with input_tabs[1]:
+        st.subheader("Upload JSON Files")
+        st.info("Upload pre-formatted subject JSON files directly.")
+
+        uploaded = st.file_uploader(
+            "Upload subject JSON files",
+            type=["json"],
+            accept_multiple_files=True,
+            key="json_uploader"
+        )
+
+        col_up1, col_up2 = st.columns([1, 1])
+        if col_up1.button("💾 Save uploads to Subjects_Input", use_container_width=True):
+            if not uploaded:
+                st.warning("No files uploaded.")
+            else:
+                saved = save_uploaded_files(uploaded)
+                st.success(f"Saved {len(saved)} file(s) to Subjects_Input/.")
+                st.session_state["subjects"] = load_subjects_from_directory(
+                    SUBJECTS_DIR)
+
+        if col_up2.button("📂 Load from Subjects_Input", use_container_width=True):
+            st.session_state["subjects"] = load_subjects_from_directory(
+                SUBJECTS_DIR)
+            st.success(
+                f"Loaded {len(st.session_state['subjects'])} subject(s) from folder.")
+
+    # Show loaded subjects (common to both tabs)
     if st.session_state["subjects"]:
-        st.subheader("Parsed Subjects")
-        st.dataframe(summarize_subjects(st.session_state["subjects"]), use_container_width=True)
-    st.info("fatigue_drain is interpreted as PER-MODULE TOTAL (per-block fatigue = fatigue_drain / n_blocks).")
+        st.subheader("Loaded Subjects")
+        st.dataframe(summarize_subjects(
+            st.session_state["subjects"]), use_container_width=True)
+
+    st.info("💡 fatigue_drain is interpreted as PER-MODULE TOTAL (per-block fatigue = fatigue_drain / n_blocks).")
 
 
 # ----------------------- Tab 2: Validate & Generate ----------------------- #
@@ -328,11 +453,16 @@ with tabs[2]:
         metrics = plan.get("metrics", {})
         st.subheader("Metrics")
         cols = st.columns(5)
-        cols[0].metric("Expected score gain", f"{metrics.get('expected_score_gain', 0):.3f}")
-        cols[1].metric("Exam coverage %", f"{metrics.get('exam_score_coverage_pct', 0)*100:.1f}%")
-        cols[2].metric("Hours scheduled", f"{metrics.get('total_hours_scheduled', 0):.1f}")
-        cols[3].metric("Fatigue compliance", f"{metrics.get('fatigue_compliance_rate', 0)*100:.1f}%")
-        cols[4].metric("Dependency violations", metrics.get("dependency_violations", 0))
+        cols[0].metric("Expected score gain",
+                       f"{metrics.get('expected_score_gain', 0):.3f}")
+        cols[1].metric("Exam coverage %",
+                       f"{metrics.get('exam_score_coverage_pct', 0)*100:.1f}%")
+        cols[2].metric("Hours scheduled",
+                       f"{metrics.get('total_hours_scheduled', 0):.1f}")
+        cols[3].metric("Fatigue compliance",
+                       f"{metrics.get('fatigue_compliance_rate', 0)*100:.1f}%")
+        cols[4].metric("Dependency violations",
+                       metrics.get("dependency_violations", 0))
 
         schedule = plan.get("schedule", [])
         if schedule:
@@ -345,9 +475,11 @@ with tabs[2]:
                 st.bar_chart(sched_df.set_index("date")["hours_planned"])
             with chart_cols[1]:
                 st.caption("Daily fatigue vs cap")
-                fatigue_df = sched_df[["date", "fatigue_total"]].set_index("date")
+                fatigue_df = sched_df[[
+                    "date", "fatigue_total"]].set_index("date")
                 st.line_chart(fatigue_df)
-                st.caption(f"Fatigue cap: {plan.get('daily_max_fatigue', '-')}")
+                st.caption(
+                    f"Fatigue cap: {plan.get('daily_max_fatigue', '-')}")
 
             # Stacked bars by subject
             blocks_expanded = []
@@ -363,15 +495,20 @@ with tabs[2]:
             if blocks_expanded:
                 st.caption("Hours by subject per day")
                 bdf = pd.DataFrame(blocks_expanded)
-                pivot = bdf.pivot_table(index="date", columns="subject", values="hours", aggfunc="sum").fillna(0)
+                pivot = bdf.pivot_table(
+                    index="date", columns="subject", values="hours", aggfunc="sum").fillna(0)
                 st.bar_chart(pivot)
 
             st.subheader("Schedule")
-            subjects_available = sorted({blk.get("subject_name", "Unknown") for row in schedule for blk in row.get("blocks", [])})
-            exams_available = sorted({blk.get("exam_type", "Unknown") for row in schedule for blk in row.get("blocks", [])})
+            subjects_available = sorted({blk.get(
+                "subject_name", "Unknown") for row in schedule for blk in row.get("blocks", [])})
+            exams_available = sorted({blk.get("exam_type", "Unknown")
+                                     for row in schedule for blk in row.get("blocks", [])})
             filt_col1, filt_col2 = st.columns(2)
-            subject_filter = filt_col1.multiselect("Filter by subject", subjects_available, default=subjects_available)
-            exam_filter = filt_col2.multiselect("Filter by exam type", exams_available, default=exams_available)
+            subject_filter = filt_col1.multiselect(
+                "Filter by subject", subjects_available, default=subjects_available)
+            exam_filter = filt_col2.multiselect(
+                "Filter by exam type", exams_available, default=exams_available)
 
             for row in schedule:
                 day_blocks = [
@@ -380,12 +517,14 @@ with tabs[2]:
                 ]
                 if not day_blocks:
                     continue
-                with st.expander(f"{row['date']} — hours {row.get('hours_planned',0)} / fatigue {row.get('fatigue_total',0)}"):
+                with st.expander(f"{row['date']} — hours {row.get('hours_planned', 0)} / fatigue {row.get('fatigue_total', 0)}"):
                     st.table(pd.DataFrame(day_blocks))
 
         st.subheader("Downloads")
-        download_button_for_file("Download global_long_term_plan.json", long_path, key="dl_long")
-        download_button_for_file("Download summary_metrics.json", summary_path, key="dl_summary")
+        download_button_for_file(
+            "Download global_long_term_plan.json", long_path, key="dl_long")
+        download_button_for_file(
+            "Download summary_metrics.json", summary_path, key="dl_summary")
 
 
 # ----------------------- Tab 4: Results — Global Short-Term ----------------------- #
@@ -393,7 +532,8 @@ with tabs[3]:
     st.header("Global Short-Term Plan")
     short_path = OUTPUT_DIR / "global_short_term_plan.json"
     if not generate_short_term:
-        st.info("Short-term generation disabled in sidebar. Enable and regenerate to view.")
+        st.info(
+            "Short-term generation disabled in sidebar. Enable and regenerate to view.")
     elif not short_path.exists():
         st.info("No global_short_term_plan.json found. Generate a plan first.")
     else:
@@ -401,10 +541,14 @@ with tabs[3]:
         metrics = plan.get("metrics", {})
         st.subheader("Metrics")
         cols = st.columns(4)
-        cols[0].metric("Expected score gain", f"{metrics.get('expected_score_gain', 0):.3f}")
-        cols[1].metric("Exam coverage %", f"{metrics.get('exam_score_coverage_pct', 0)*100:.1f}%")
-        cols[2].metric("Hours scheduled", f"{metrics.get('total_hours_scheduled', 0):.1f}")
-        cols[3].metric("Fatigue compliance", f"{metrics.get('fatigue_compliance_rate', 0)*100:.1f}%")
+        cols[0].metric("Expected score gain",
+                       f"{metrics.get('expected_score_gain', 0):.3f}")
+        cols[1].metric("Exam coverage %",
+                       f"{metrics.get('exam_score_coverage_pct', 0)*100:.1f}%")
+        cols[2].metric("Hours scheduled",
+                       f"{metrics.get('total_hours_scheduled', 0):.1f}")
+        cols[3].metric("Fatigue compliance",
+                       f"{metrics.get('fatigue_compliance_rate', 0)*100:.1f}%")
 
         schedule = plan.get("schedule", [])
         if schedule:
@@ -412,7 +556,8 @@ with tabs[3]:
             st.subheader("Schedule")
             st.table(sched_df[["date", "hours_planned", "fatigue_total"]])
         st.subheader("Downloads")
-        download_button_for_file("Download global_short_term_plan.json", short_path, key="dl_short")
+        download_button_for_file(
+            "Download global_short_term_plan.json", short_path, key="dl_short")
 
 
 # ----------------------- Tab 5: Diagnostics ----------------------- #
