@@ -37,7 +37,7 @@ Extract the following information and format it according to the JSON schema pro
 3. **Study Modules**: Break down the course content into study modules/topics. For each module:
    - **module_id**: Use format "M1", "M2", "M3", etc.
    - **module_name**: The topic or chapter name
-   - **exam_type**: Which exam this module is relevant for (e.g., "Midterm", "Final", "Both")
+   - **exam_type**: One of the exam names from the exams list (e.g., if exams include "Midterm Exam" and "Final Exam", use those exact names)
    - **estimated_exam_percent**: Estimate what percentage of that exam this module contributes to (distribute the exam's total percentage across its modules)
    - **estimated_time_hrs**: Estimate study hours needed based on complexity (simple topics: 4-6 hrs, moderate: 8-12 hrs, complex: 15-20 hrs)
    - **preparation_ease**: Rate 1-5 (1=very hard, 5=very easy) based on complexity and prerequisites

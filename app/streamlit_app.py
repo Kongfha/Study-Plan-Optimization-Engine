@@ -261,7 +261,8 @@ def build_exam_lookup(plan: Dict[str, Any]) -> Dict[str, str]:
                 continue
             exam_key = blk.get("exam_type") or blk.get("module_name") or "exam"
             lookup.setdefault(exam_key, iso_val)
-            subj_key = f"{blk.get('subject_name', '')}:{blk.get('exam_type', '')}".strip(":")
+            subj_key = f"{blk.get('subject_name', '')}:{blk.get('exam_type', '')}".strip(
+                ":")
             if subj_key:
                 lookup.setdefault(subj_key, iso_val)
     return lookup
@@ -271,9 +272,43 @@ def filter_schedule_rows(
     schedule: List[Dict[str, Any]],
     subject_filter: List[str],
     exam_filter: List[str],
+    exam_lookup: Dict[str, str],
 ) -> List[Dict[str, Any]]:
-    """Filter schedule rows by subject/exam selection and normalize dates."""
+    """Filter schedule rows by subject/exam selection and normalize dates. Add exam date entries."""
     filtered: List[Dict[str, Any]] = []
+
+    # First, add all exam dates as special entries
+    exam_dates_added = set()
+    for exam_name, exam_date_str in exam_lookup.items():
+        iso_day = _normalize_date(exam_date_str)
+        if not iso_day or iso_day in exam_dates_added:
+            continue
+        try:
+            day_obj = datetime.strptime(iso_day, "%Y-%m-%d").date()
+        except Exception:
+            continue
+
+        # Create a special exam block
+        exam_block = {
+            "subject_name": "EXAM DAY",
+            "module_name": exam_name,
+            "exam_type": exam_name,
+            "block_hours": 0,
+            "exam_date": iso_day,
+            "is_exam_day": True
+        }
+
+        filtered.append({
+            "date": iso_day,
+            "date_obj": day_obj,
+            "date_iso": iso_day,
+            "hours_planned": 0,
+            "fatigue_total": 0,
+            "blocks": [exam_block]
+        })
+        exam_dates_added.add(iso_day)
+
+    # Then add regular schedule rows
     for row in schedule:
         iso_day = _normalize_date(row.get("date"))
         if not iso_day:
@@ -290,7 +325,20 @@ def filter_schedule_rows(
         ]
         if not day_blocks:
             continue
-        filtered.append({**row, "date_obj": day_obj, "date_iso": iso_day, "blocks": day_blocks})
+
+        # If this date already has an exam entry, merge the blocks
+        if iso_day in exam_dates_added:
+            for entry in filtered:
+                if entry["date_iso"] == iso_day:
+                    # Add regular blocks to the exam day entry
+                    entry["blocks"].extend(day_blocks)
+                    entry["hours_planned"] = row.get("hours_planned", 0)
+                    entry["fatigue_total"] = row.get("fatigue_total", 0)
+                    break
+        else:
+            filtered.append({**row, "date_obj": day_obj,
+                            "date_iso": iso_day, "blocks": day_blocks})
+
     return filtered
 
 
@@ -307,8 +355,10 @@ def render_calendar(schedule_rows: List[Dict[str, Any]], exam_lookup: Dict[str, 
         if iso:
             exams_by_date.setdefault(iso, []).append(name)
 
-    schedule_by_date = {row["date_iso"]: row for row in schedule_rows if row.get("date_iso")}
-    day_objs = [row.get("date_obj") for row in schedule_rows if row.get("date_obj")]
+    schedule_by_date = {
+        row["date_iso"]: row for row in schedule_rows if row.get("date_iso")}
+    day_objs = [row.get("date_obj")
+                for row in schedule_rows if row.get("date_obj")]
     if not day_objs:
         st.info("No schedulable dates found.")
         return
@@ -321,15 +371,21 @@ def render_calendar(schedule_rows: List[Dict[str, Any]], exam_lookup: Dict[str, 
     st.markdown(
         """
         <style>
-        .calendar-card {border:1px solid #e4e7ec; border-radius:10px; padding:10px; background:#f9fbff; min-height:180px;}
+        .calendar-card {border:1px solid #e4e7ec; border-radius:10px; padding:10px; background:#f9fbff; height:350px; display:flex; flex-direction:column;}
         .calendar-card.empty {background:#fbfcfe;}
-        .calendar-date {font-weight:700; color:#0f1f3d;}
+        .calendar-date {font-weight:700; color:#0f1f3d; margin-bottom:4px;}
         .calendar-meta {color:#4a5a71; font-size:0.9rem; margin-bottom:6px;}
+        .calendar-badges {margin-bottom:6px;}
+        .calendar-blocks {flex:1; overflow-y:auto; overflow-x:hidden;}
         .block-item {background:#ffffff; border:1px solid #eef2f7; border-radius:8px; padding:6px 8px; margin-bottom:6px;}
-        .block-title {font-weight:600; color:#0f1f3d;}
-        .block-meta {color:#4a5a71; font-size:0.85rem;}
+        .block-item.exam-day {background:#ff4444; border:2px solid #cc0000; color:#ffffff;}
+        .block-title {font-weight:600; color:#0f1f3d; font-size:0.85rem;}
+        .block-title.exam-day {color:#ffffff;}
+        .block-meta {color:#4a5a71; font-size:0.8rem;}
+        .block-meta.exam-day {color:#ffeeee;}
         .pill {display:inline-block; padding:2px 8px; border-radius:12px; background:#e7f1ff; color:#1f4f85; font-size:0.78rem; margin-right:4px;}
         .pill-alert {background:#ffe9e6; color:#a32121;}
+        .pill-exam-date {background:#ff4444; color:#ffffff; font-weight:600;}
         .calendar-empty {color:#99a3b3; font-size:0.85rem; margin-top:8px;}
         </style>
         """,
@@ -347,14 +403,13 @@ def render_calendar(schedule_rows: List[Dict[str, Any]], exam_lookup: Dict[str, 
             exam_badges = exams_by_date.get(iso_day, [])
 
             if not row:
-                cols[idx].markdown(
+                cols[idx].html(
                     f"""
                     <div class="calendar-card empty">
                         <div class="calendar-date">{day.strftime('%b %d')}</div>
                         <div class="calendar-empty">No plan</div>
                     </div>
-                    """,
-                    unsafe_allow_html=True,
+                    """
                 )
                 continue
 
@@ -362,37 +417,48 @@ def render_calendar(schedule_rows: List[Dict[str, Any]], exam_lookup: Dict[str, 
             fatigue_total = row.get("fatigue_total", 0)
             day_blocks = row.get("blocks", [])
 
-            badge_html = "".join([f"<span class='pill pill-alert'>Exam: {_safe_html(name)}</span>" for name in exam_badges])
+            badge_html = ""
 
             block_items = ""
-            for blk in day_blocks[:3]:
+            for blk in day_blocks:
+                is_exam_day = blk.get("is_exam_day", False)
                 exam_date = _normalize_date(
                     blk.get("exam_date")
                     or exam_lookup.get(blk.get("exam_type"))
                     or exam_lookup.get(f"{blk.get('subject_name', '')}:{blk.get('exam_type', '')}")
                 )
-                hours_text = f"{float(blk.get('block_hours', 1.0) or 0.0):.1f}h"
-                exam_text = f"{_safe_html(blk.get('exam_type', '-'))}{' · ' + exam_date if exam_date else ''}"
-                block_items += f"""
-                    <div class="block-item">
-                        <div class="block-title">{_safe_html(blk.get('subject_name', ''))}</div>
-                        <div class="block-meta">{_safe_html(blk.get('module_name', ''))}</div>
-                        <div class="block-meta">{exam_text} · {hours_text}</div>
-                    </div>
-                """
-            if len(day_blocks) > 3:
-                block_items += f"<div class='block-meta'>+{len(day_blocks) - 3} more block(s)</div>"
 
-            cols[idx].markdown(
+                if is_exam_day:
+                    # Special styling for exam day blocks
+                    block_items += f"""
+                        <div class="block-item exam-day">
+                            <div class="block-title exam-day">🎓 EXAM: {_safe_html(blk.get('module_name', 'Exam'))}</div>
+                            <div class="block-meta exam-day">📅 {exam_date}</div>
+                        </div>
+                    """
+                else:
+                    # Regular study blocks
+                    hours_text = f"{float(blk.get('block_hours', 1.0) or 0.0):.1f}h"
+                    exam_text = f"{_safe_html(blk.get('exam_type', '-'))}{' · ' + exam_date if exam_date else ''}"
+                    block_items += f"""
+                        <div class="block-item">
+                            <div class="block-title">{_safe_html(blk.get('subject_name', ''))}</div>
+                            <div class="block-meta">{_safe_html(blk.get('module_name', ''))}</div>
+                            <div class="block-meta">{exam_text} · {hours_text}</div>
+                        </div>
+                    """
+
+            cols[idx].html(
                 f"""
                 <div class="calendar-card">
                     <div class="calendar-date">{day.strftime('%b %d')}</div>
                     <div class="calendar-meta">Hours {hours_planned:.1f} · Fatigue {fatigue_total}</div>
-                    {badge_html}
-                    {block_items or '<div class="calendar-empty">No blocks</div>'}
+                    <div class="calendar-badges">{badge_html}</div>
+                    <div class="calendar-blocks">
+                        {block_items or '<div class="calendar-empty">No blocks</div>'}
+                    </div>
                 </div>
-                """,
-                unsafe_allow_html=True,
+                """
             )
         current_week += timedelta(days=7)
 
@@ -556,14 +622,16 @@ with tabs[1]:
     if not st.session_state["subjects"]:
         st.info("Load subjects first from the Inputs tab.")
     else:
-        st.caption("Edit exam dates and percentages, and review which modules are tied to each exam.")
+        st.caption(
+            "Edit exam dates and percentages, and review which modules are tied to each exam.")
         for subj_idx, subj in enumerate(st.session_state["subjects"]):
             with st.expander(f"{subj.subject_name} — {len(subj.exams)} exam(s)", expanded=False):
                 with st.form(key=f"exam_edit_form_{subj_idx}"):
                     exam_rows = []
                     for eid, exam in enumerate(subj.exams):
                         try:
-                            parsed_date = datetime.strptime(str(exam.exam_date), "%Y-%m-%d").date()
+                            parsed_date = datetime.strptime(
+                                str(exam.exam_date), "%Y-%m-%d").date()
                         except Exception:
                             parsed_date = None
                         exam_rows.append(
@@ -586,7 +654,8 @@ with tabs[1]:
                         key=f"exam_editor_{subj_idx}",
                         use_container_width=True,
                     )
-                    saved = st.form_submit_button("Save exam updates", use_container_width=True)
+                    saved = st.form_submit_button(
+                        "Save exam updates", use_container_width=True)
                     if saved and edited_df is not None:
                         for _, row in edited_df.iterrows():
                             idx = int(row["exam_idx"])
@@ -602,7 +671,8 @@ with tabs[1]:
                                 date_str = str(date_val)
                             exam.exam_date = date_str
                             try:
-                                exam.score_percentage = float(row.get("score_percentage", 0.0))
+                                exam.score_percentage = float(
+                                    row.get("score_percentage", 0.0))
                             except Exception:
                                 exam.score_percentage = 0.0
                         st.success("Exam details updated.")
@@ -621,7 +691,8 @@ with tabs[1]:
                     )
                 for exam_name, modules in exam_to_modules.items():
                     st.write(f"• **{exam_name}** ({len(modules)} module(s))")
-                    st.dataframe(pd.DataFrame(modules), use_container_width=True, hide_index=True)
+                    st.dataframe(pd.DataFrame(modules),
+                                 use_container_width=True, hide_index=True)
 
 
 # ----------------------- Tab 3: Validate & Generate ----------------------- #
@@ -749,11 +820,13 @@ with tabs[3]:
                 schedule=schedule,
                 subject_filter=subject_filter,
                 exam_filter=exam_filter,
+                exam_lookup=exam_lookup,
             )
 
             if exam_lookup:
                 exam_df = pd.DataFrame(
-                    [{"exam": name, "date": date_str} for name, date_str in sorted(exam_lookup.items(), key=lambda x: x[1])]
+                    [{"exam": name, "date": date_str} for name, date_str in sorted(
+                        exam_lookup.items(), key=lambda x: x[1])]
                 )
                 st.caption("Exam dates")
                 st.dataframe(exam_df, hide_index=True,
