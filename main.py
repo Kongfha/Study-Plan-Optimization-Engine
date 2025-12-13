@@ -337,6 +337,11 @@ def build_plan_output(
     metrics: PlanMetrics,
     notes: List[str],
 ) -> Dict:
+    def _block_exam_date(block) -> str | None:
+        """Resolve the exam date for a block in ISO format."""
+        exam_date = block.exam_date or exam_map.get(block.exam_type) or exam_map.get(f"{block.subject_name}:{block.exam_type}")
+        return exam_date.isoformat() if exam_date else None
+
     schedule_entries = []
     for day in sorted(schedule_map.keys()):
         blocks_output = [
@@ -346,6 +351,7 @@ def build_plan_output(
                 "module_name": block.module_name,
                 "subject_name": block.subject_name,
                 "exam_type": block.exam_type,
+                "exam_date": _block_exam_date(block),
                 "block_hours": block.block_hours,
                 "final_weight": block.final_weight,
                 "value_per_hour": block.value_per_hour,
@@ -383,6 +389,7 @@ def build_plan_output(
             "dependency_violations": metrics.dependency_violations,
             "total_hours_scheduled": metrics.total_hours_scheduled,
         },
+        "exam_map": {k: v.isoformat() for k, v in exam_map.items() if v},
         "notes": notes,
     }
 

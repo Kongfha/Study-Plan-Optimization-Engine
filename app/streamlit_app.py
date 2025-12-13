@@ -3,8 +3,8 @@ from __future__ import annotations
 import json
 import os
 import sys
-from dataclasses import asdict
-from datetime import date, datetime
+import html
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional, Any
 
@@ -230,6 +230,171 @@ def download_button_for_file(label: str, path: Path, key: str) -> None:
     data = path.read_bytes()
     st.download_button(label=label, data=data,
                        file_name=path.name, mime="application/json", key=key)
+
+
+def _safe_html(value: Any) -> str:
+    return html.escape(str(value)) if value is not None else ""
+
+
+def _normalize_date(value: Any) -> Optional[str]:
+    if value in (None, "", "-"):
+        return None
+    try:
+        return pd.to_datetime(value).date().isoformat()
+    except Exception:
+        return None
+
+
+def build_exam_lookup(plan: Dict[str, Any]) -> Dict[str, str]:
+    """Collect exam dates from the plan (exam_map + block-level exam_date)."""
+    lookup: Dict[str, str] = {}
+    raw_map = plan.get("exam_map") or {}
+    for key, val in raw_map.items():
+        iso_val = _normalize_date(val)
+        if iso_val:
+            lookup[key] = iso_val
+
+    for row in plan.get("schedule", []):
+        for blk in row.get("blocks", []):
+            iso_val = _normalize_date(blk.get("exam_date"))
+            if not iso_val:
+                continue
+            exam_key = blk.get("exam_type") or blk.get("module_name") or "exam"
+            lookup.setdefault(exam_key, iso_val)
+            subj_key = f"{blk.get('subject_name', '')}:{blk.get('exam_type', '')}".strip(":")
+            if subj_key:
+                lookup.setdefault(subj_key, iso_val)
+    return lookup
+
+
+def filter_schedule_rows(
+    schedule: List[Dict[str, Any]],
+    subject_filter: List[str],
+    exam_filter: List[str],
+) -> List[Dict[str, Any]]:
+    """Filter schedule rows by subject/exam selection and normalize dates."""
+    filtered: List[Dict[str, Any]] = []
+    for row in schedule:
+        iso_day = _normalize_date(row.get("date"))
+        if not iso_day:
+            continue
+        try:
+            day_obj = datetime.strptime(iso_day, "%Y-%m-%d").date()
+        except Exception:
+            continue
+        day_blocks = [
+            blk
+            for blk in row.get("blocks", [])
+            if blk.get("subject_name", "Unknown") in subject_filter
+            and blk.get("exam_type", "Unknown") in exam_filter
+        ]
+        if not day_blocks:
+            continue
+        filtered.append({**row, "date_obj": day_obj, "date_iso": iso_day, "blocks": day_blocks})
+    return filtered
+
+
+def render_calendar(schedule_rows: List[Dict[str, Any]], exam_lookup: Dict[str, str]) -> None:
+    """Render a week-by-week calendar grid for the schedule."""
+    if not schedule_rows:
+        st.info("No schedule matches selected filters.")
+        return
+
+    # Build quick lookup for exams by date
+    exams_by_date: Dict[str, List[str]] = {}
+    for name, dstr in exam_lookup.items():
+        iso = _normalize_date(dstr)
+        if iso:
+            exams_by_date.setdefault(iso, []).append(name)
+
+    schedule_by_date = {row["date_iso"]: row for row in schedule_rows if row.get("date_iso")}
+    day_objs = [row.get("date_obj") for row in schedule_rows if row.get("date_obj")]
+    if not day_objs:
+        st.info("No schedulable dates found.")
+        return
+
+    start_day = min(day_objs)
+    end_day = max(day_objs)
+    start_week = start_day - timedelta(days=start_day.weekday())
+    end_week = end_day + timedelta(days=6 - end_day.weekday())
+
+    st.markdown(
+        """
+        <style>
+        .calendar-card {border:1px solid #e4e7ec; border-radius:10px; padding:10px; background:#f9fbff; min-height:180px;}
+        .calendar-card.empty {background:#fbfcfe;}
+        .calendar-date {font-weight:700; color:#0f1f3d;}
+        .calendar-meta {color:#4a5a71; font-size:0.9rem; margin-bottom:6px;}
+        .block-item {background:#ffffff; border:1px solid #eef2f7; border-radius:8px; padding:6px 8px; margin-bottom:6px;}
+        .block-title {font-weight:600; color:#0f1f3d;}
+        .block-meta {color:#4a5a71; font-size:0.85rem;}
+        .pill {display:inline-block; padding:2px 8px; border-radius:12px; background:#e7f1ff; color:#1f4f85; font-size:0.78rem; margin-right:4px;}
+        .pill-alert {background:#ffe9e6; color:#a32121;}
+        .calendar-empty {color:#99a3b3; font-size:0.85rem; margin-top:8px;}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    current_week = start_week
+    while current_week <= end_week:
+        st.markdown(f"**Week of {current_week.isoformat()}**")
+        cols = st.columns(7)
+        for idx in range(7):
+            day = current_week + timedelta(days=idx)
+            iso_day = day.isoformat()
+            row = schedule_by_date.get(iso_day)
+            exam_badges = exams_by_date.get(iso_day, [])
+
+            if not row:
+                cols[idx].markdown(
+                    f"""
+                    <div class="calendar-card empty">
+                        <div class="calendar-date">{day.strftime('%b %d')}</div>
+                        <div class="calendar-empty">No plan</div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+                continue
+
+            hours_planned = float(row.get("hours_planned", 0.0) or 0.0)
+            fatigue_total = row.get("fatigue_total", 0)
+            day_blocks = row.get("blocks", [])
+
+            badge_html = "".join([f"<span class='pill pill-alert'>Exam: {_safe_html(name)}</span>" for name in exam_badges])
+
+            block_items = ""
+            for blk in day_blocks[:3]:
+                exam_date = _normalize_date(
+                    blk.get("exam_date")
+                    or exam_lookup.get(blk.get("exam_type"))
+                    or exam_lookup.get(f"{blk.get('subject_name', '')}:{blk.get('exam_type', '')}")
+                )
+                hours_text = f"{float(blk.get('block_hours', 1.0) or 0.0):.1f}h"
+                exam_text = f"{_safe_html(blk.get('exam_type', '-'))}{' · ' + exam_date if exam_date else ''}"
+                block_items += f"""
+                    <div class="block-item">
+                        <div class="block-title">{_safe_html(blk.get('subject_name', ''))}</div>
+                        <div class="block-meta">{_safe_html(blk.get('module_name', ''))}</div>
+                        <div class="block-meta">{exam_text} · {hours_text}</div>
+                    </div>
+                """
+            if len(day_blocks) > 3:
+                block_items += f"<div class='block-meta'>+{len(day_blocks) - 3} more block(s)</div>"
+
+            cols[idx].markdown(
+                f"""
+                <div class="calendar-card">
+                    <div class="calendar-date">{day.strftime('%b %d')}</div>
+                    <div class="calendar-meta">Hours {hours_planned:.1f} · Fatigue {fatigue_total}</div>
+                    {badge_html}
+                    {block_items or '<div class="calendar-empty">No blocks</div>'}
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+        current_week += timedelta(days=7)
 
 
 # ----------------------- Sidebar ----------------------- #
@@ -534,6 +699,7 @@ with tabs[3]:
                        metrics.get("dependency_violations", 0))
 
         schedule = plan.get("schedule", [])
+        exam_lookup = build_exam_lookup(plan)
         if schedule:
             sched_df = pd.DataFrame(schedule)
             sched_df["date"] = pd.to_datetime(sched_df["date"])
@@ -579,15 +745,31 @@ with tabs[3]:
             exam_filter = filt_col2.multiselect(
                 "Filter by exam type", exams_available, default=exams_available)
 
-            for row in schedule:
-                day_blocks = [
-                    blk for blk in row.get("blocks", [])
-                    if blk.get("subject_name", "Unknown") in subject_filter and blk.get("exam_type", "Unknown") in exam_filter
-                ]
-                if not day_blocks:
-                    continue
-                with st.expander(f"{row['date']} — hours {row.get('hours_planned', 0)} / fatigue {row.get('fatigue_total', 0)}"):
-                    st.table(pd.DataFrame(day_blocks))
+            filtered_schedule = filter_schedule_rows(
+                schedule=schedule,
+                subject_filter=subject_filter,
+                exam_filter=exam_filter,
+            )
+
+            if exam_lookup:
+                exam_df = pd.DataFrame(
+                    [{"exam": name, "date": date_str} for name, date_str in sorted(exam_lookup.items(), key=lambda x: x[1])]
+                )
+                st.caption("Exam dates")
+                st.dataframe(exam_df, hide_index=True,
+                             use_container_width=True)
+
+            st.caption("Calendar view")
+            render_calendar(filtered_schedule, exam_lookup)
+
+            with st.expander("Detailed day-by-day (filtered)", expanded=False):
+                if not filtered_schedule:
+                    st.info("No schedule matches selected filters.")
+                else:
+                    for row in filtered_schedule:
+                        st.markdown(
+                            f"**{row['date_iso']}** — hours {row.get('hours_planned', 0)} / fatigue {row.get('fatigue_total', 0)}")
+                        st.table(pd.DataFrame(row.get("blocks", [])))
 
         st.subheader("Downloads")
         download_button_for_file(
